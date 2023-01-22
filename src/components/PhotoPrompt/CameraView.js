@@ -4,7 +4,7 @@ import { Text, TouchableOpacity, View } from 'react-native';
 
 let cameraRef;
 
-const CameraView = ({ currentId, setCurrentId, setPicture }) => {
+const CameraView = ({ setPicture }) => {
     const [permission, requestPermission] = Camera.useCameraPermissions();
     const [type, setType] = useState(CameraType.back);
 
@@ -20,7 +20,6 @@ const CameraView = ({ currentId, setCurrentId, setPicture }) => {
         if (cameraRef) {
             let photo = await cameraRef.takePictureAsync();
             setPicture(photo);
-            setCurrentId(currentId + 1);
         }
     }
 

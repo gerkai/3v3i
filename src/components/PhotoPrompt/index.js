@@ -3,13 +3,11 @@ import { View, StyleSheet } from 'react-native';
 import CameraView from './CameraView';
 import PromptView from './PromptView';
 
-const PhotoPrompt = ({currentId, setCurrentId}) => {
-    const [picture, setPicture] = useState(null);
-
+const PhotoPrompt = ({ currentId, setPicture }) => {
     return (
         <View style={styles.container}>
             <PromptView currentId={currentId} />
-            <CameraView currentId={currentId} setCurrentId={setCurrentId} setPicture={setPicture} />
+            <CameraView setPicture={setPicture} />
         </View>
     );
 }
