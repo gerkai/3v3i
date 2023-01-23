@@ -18,7 +18,7 @@ const CameraView = ({ setPicture }) => {
 
     const takePicture = async () => {
         if (cameraRef) {
-            let photo = await cameraRef.takePictureAsync();
+            let photo = await cameraRef.takePictureAsync({ base64: true });
             setPicture(photo);
         }
     }

@@ -27,16 +27,7 @@ export default function App() {
         <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>
           {/* <SignOutButton /> */}
 
-          {currentPromptId < prompts.length ? (
-            <PhotoPrompt currentId={currentPromptId} setPicture={handleTakePhoto} />
-          ) : (
-            <>
-              <Text>All prompts have been taken</Text>
-              <Text>Please enter your email:</Text>
-              <TextInput value={email} onChangeText={setEmail} />
-              <SendPhotos photos={photos} email={email} />
-            </>
-          )}
+          {currentPromptId < prompts.length ? <PhotoPrompt currentId={currentPromptId} setPicture={handleTakePhoto} /> : <SendPhotos photos={photos} email={email} />}
         </SafeAreaView>
       </Authenticator>
     </Authenticator.Provider>

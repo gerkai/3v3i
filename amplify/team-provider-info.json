@@ -9,11 +9,24 @@
       "UnauthRoleName": "amplify-charger-dev-132943-unauthRole",
       "StackName": "amplify-charger-dev-132943",
       "StackId": "arn:aws:cloudformation:us-east-1:691025346261:stack/amplify-charger-dev-132943/2098cd50-9a8b-11ed-be52-12c1154a7bd1",
-      "AmplifyAppId": "d2dsy3lvz0fr6"
+      "AmplifyAppId": "d2dsy3lvz0fr6",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-charger-dev-132943-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
     },
     "categories": {
       "auth": {
         "charger71bd81d3": {}
+      },
+      "function": {
+        "charger": {
+          "deploymentBucketName": "amplify-charger-dev-132943-deployment",
+          "s3Key": "amplify-builds/charger-354c61335a4f54764747-build.zip"
+        }
+      },
+      "storage": {
+        "documentdata": {}
+      },
+      "api": {
+        "charger": {}
       }
     }
   }

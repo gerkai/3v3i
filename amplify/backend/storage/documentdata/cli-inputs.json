@@ -1,0 +1,14 @@
+{
+  "resourceName": "documentdata",
+  "policyUUID": "52b5f046",
+  "bucketName": "documentdata",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "triggerFunction": "NONE",
+  "groupAccess": {}
+}
