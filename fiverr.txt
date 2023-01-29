@@ -1,0 +1,16 @@
+Hey man! I've got something I think you could help me with.
+
+I'm building an app that basically acts as an assistant to filling out a form. A client of mine has a document that gets filled out by various people, part of what goes onto the document is 20 images. There are also text fields but the images section is the primary reason I was asked to build the app.
+
+I'm using handlebars in the backend to populate a raw HTML document with these images and text inputs. I've got a working prototype that takes two images and puts them on a page, and now I need to actually do the legwork of creating the REAL document that will accept all of the user's photos and inputs (entered through the frontend app).
+
+Attached are the document that needs to be built in html for handlebars and the starter document that I've been testing with.
+
+The only design change that I'd ask that you make is if you could align the pictures section at the end. The pictures will be perfectly square so that part of the form and be cleaned up a bit.
+
+Let me know if this is something you can do. To clarify, you aren't actually building any forms - I'm inserting values into the document myself using handlebars.
+
+Checkout this tool to see how I will be using your document: https://handlebarsjs.com/
+
+Thanks,
+Connor

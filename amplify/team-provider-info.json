@@ -19,7 +19,7 @@
       "function": {
         "charger": {
           "deploymentBucketName": "amplify-charger-dev-132943-deployment",
-          "s3Key": "amplify-builds/charger-354c61335a4f54764747-build.zip"
+          "s3Key": "amplify-builds/charger-50713653554f662f6644-build.zip"
         }
       },
       "storage": {
