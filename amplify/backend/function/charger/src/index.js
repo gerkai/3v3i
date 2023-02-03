@@ -10,12 +10,20 @@ module.exports.handler = async (event) => {
         const cognitoIdentity = 'us-east-1:0b952b94-1dbd-40dc-8f9c-870498736f00';
         //const cognitoIdentity = event.requestContext.identity.cognitoIdentityId;
         const photos = await getPhotosFromS3(cognitoIdentity);
-        console.log(photos['TypeDDispensers'][0])
         const formData = await getFormData(cognitoIdentity);
-        console.log(formData);
+        console.log(formData)
         const templateObject = await getTemplateObject();
 
         // Compile the HTML template using Handlebars
+        handlebars.registerHelper("inc", function (value, options) {
+            return parseInt(value) + 1;
+        });
+        handlebars.registerHelper('ifCond', function (v1, v2, options) {
+            if (v1 === v2) {
+                return options.fn(this);
+            }
+            return options.inverse(this);
+        });
         const template = handlebars.compile(templateObject.Body.toString());
         const html = template({ photos, formData });
 
@@ -59,6 +67,8 @@ const getPhotosFromS3 = async (identityId) => {
     const photos = {};
     photos["TypeDDispensers"] = [];
     photos["Type1DDispensers"] = [];
+    photos["Constants"] = [];
+    photos["PowerCabinets"] = [];
 
     for (let obj of s3Objects.Contents) {
         const fileName = obj.Key.split('/').pop().split('.')[0];
@@ -68,8 +78,12 @@ const getPhotosFromS3 = async (identityId) => {
         }).promise();
         const metadata = headObjectResult.Metadata;
         const dispenserNumber = metadata.dispensernumber;
+        const overallDispenserNumber = metadata.overalldispensernumber;
         const dispenser = metadata.dispenser;
         const type = metadata.type;
+        const constant = metadata.constant;
+        const powercabinet = metadata.powercabinet;
+        const cabinetNumber = metadata.cabinetnumber;
         const promptKey = metadata.promptkey;
 
         if (type === "D") {
@@ -78,6 +92,7 @@ const getPhotosFromS3 = async (identityId) => {
                 dispenserIndex = photos["TypeDDispensers"].length;
                 photos["TypeDDispensers"][dispenserIndex] = {};
                 photos["TypeDDispensers"][dispenserIndex]["DispenserNumber"] = dispenserNumber;
+                photos["TypeDDispensers"][dispenserIndex]["OverallDispenserNumber"] = overallDispenserNumber;
                 photos["TypeDDispensers"][dispenserIndex]["Photos"] = {};
             }
 
@@ -94,6 +109,7 @@ const getPhotosFromS3 = async (identityId) => {
                 dispenserIndex = photos["Type1DDispensers"].length;
                 photos["Type1DDispensers"][dispenserIndex] = {};
                 photos["Type1DDispensers"][dispenserIndex]["DispenserNumber"] = dispenserNumber;
+                photos["Type1DDispensers"][dispenserIndex]["OverallDispenserNumber"] = overallDispenserNumber;
                 photos["Type1DDispensers"][dispenserIndex]["Photos"] = {};
             }
 
@@ -103,6 +119,31 @@ const getPhotosFromS3 = async (identityId) => {
                     Key: obj.Key,
                     Expires: 31536000 // one year in seconds
                 })
+        } else if (!!constant) {
+            photos["Constants"][promptKey] =
+                s3.getSignedUrl('getObject', {
+                    Bucket: bucketName,
+                    Key: obj.Key,
+                    Expires: 31536000 // one year in seconds
+                })
+        } else if (!!powercabinet) {
+            let powerCabinetIndex = photos["PowerCabinets"].findIndex(cabinet => cabinet.CabinetNumber == cabinetNumber);
+            if (powerCabinetIndex === -1) {
+                powerCabinetIndex = photos["PowerCabinets"].length;
+                photos["PowerCabinets"][powerCabinetIndex] = {};
+                photos["PowerCabinets"][powerCabinetIndex]["CabinetNumber"] = cabinetNumber;
+                photos["PowerCabinets"][powerCabinetIndex]["Photos"] = {};
+            }
+
+            photos["PowerCabinets"][powerCabinetIndex]["Photos"][promptKey] =
+                s3.getSignedUrl('getObject', {
+                    Bucket: bucketName,
+                    Key: obj.Key,
+                    Expires: 31536000 // one year in seconds
+                })
+        }
+        else {
+            console.log(metadata)
         }
     }
 
