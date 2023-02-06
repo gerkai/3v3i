@@ -11,7 +11,9 @@ module.exports.handler = async (event) => {
         //const cognitoIdentity = event.requestContext.identity.cognitoIdentityId;
         const photos = await getPhotosFromS3(cognitoIdentity);
         const formData = await getFormData(cognitoIdentity);
-        console.log(formData)
+        const style = await getStyle();
+        const logo = await getLogo();
+        console.log(logo)
         const templateObject = await getTemplateObject();
 
         // Compile the HTML template using Handlebars
@@ -25,7 +27,7 @@ module.exports.handler = async (event) => {
             return options.inverse(this);
         });
         const template = handlebars.compile(templateObject.Body.toString());
-        const html = template({ photos, formData });
+        const html = template({ photos, formData, style, logo });
 
         // Upload the generated HTML docum ent to S3
         const htmlKey = `private/${cognitoIdentity}/documents/${Date.now()}.html`;
@@ -55,6 +57,52 @@ module.exports.handler = async (event) => {
         };
     }
 };
+
+const getStyle = async () => {
+    const s3 = new AWS.S3();
+    const myBucket = 'documentdata132943-dev';
+
+    const myKey = 'assets/css/style.css';
+    const signingParams = {
+        Bucket: myBucket,
+        Key: myKey,
+        Expires: 31536000 // one year in seconds
+    };
+
+    return new Promise((resolve, reject) => {
+        s3.getSignedUrl('getObject', signingParams, (err, url) => {
+            if (err) {
+                console.error(err);
+                reject(err);
+            } else {
+                resolve(url);
+            }
+        });
+    });
+}
+
+const getLogo = async () => {
+    const s3 = new AWS.S3();
+    const myBucket = 'documentdata132943-dev';
+
+    const myKey = 'assets/images/1.png';
+    const signingParams = {
+        Bucket: myBucket,
+        Key: myKey,
+        Expires: 31536000 // one year in seconds
+    };
+
+    return new Promise((resolve, reject) => {
+        s3.getSignedUrl('getObject', signingParams, (err, url) => {
+            if (err) {
+                console.error(err);
+                reject(err);
+            } else {
+                resolve(url);
+            }
+        });
+    });
+}
 
 const getPhotosFromS3 = async (identityId) => {
     const s3 = new AWS.S3();

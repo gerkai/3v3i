@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
+import React, { useState, useContext } from 'react';
 import { View, StyleSheet, Button, Alert, Text } from 'react-native';
+import { PhotosContext } from '../../context/MyProviders';
 import DispenserPhotoPrompts from './DispenserPhotoPrompts';
 import { promptsD, prompts1D } from './prompts';
 
-const GetTypeDDispensers = ({ type, addPhoto, setComplete }) => {
+const GetDispensers = ({ type, navigateTo }) => {
+    const { addPhoto } = useContext(PhotosContext);
+    const navigation = useNavigation();
     const [currentDispenserComplete, setCurrentDispenserComplete] = useState(true);
     const [counter, setCounter] = useState(0);
 
@@ -22,7 +26,7 @@ const GetTypeDDispensers = ({ type, addPhoto, setComplete }) => {
                 <View>
                     <Text>Add a Type {type} Dispenser?</Text>
                     <Button title={"Yes"} onPress={handleAddAnother} />
-                    <Button title={"No"} onPress={() => setComplete(true)} />
+                    <Button title={"No"} onPress={() => navigation.navigate(navigateTo)} />
                 </View>
             ) : (
                 <DispenserPhotoPrompts type={type} dispenserNumber={counter} prompts={prompts} addPhoto={addPhoto} setComplete={setCurrentDispenserComplete} />
@@ -39,4 +43,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default GetTypeDDispensers;
+export default GetDispensers;

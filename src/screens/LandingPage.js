@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Button, Text, Surface } from 'react-native-paper';
@@ -31,13 +32,15 @@ const styles = StyleSheet.create({
     }
 });
 
-const LandingPage = ({ setStarted }) => {
+const LandingPage = () => {
+    const navigation = useNavigation();
+
     return (
         <View style={styles.container}>
             <Surface style={styles.surface}>
                 <Text style={styles.titleText}>Welcome to the Document Generator App</Text>
                 <Text style={styles.bodyText}>This app will guide you through taking specific photos to generate a document</Text>
-                <Button mode="contained" style={styles.startButton} onPress={() => setStarted(true)}>Start</Button>
+                <Button mode="contained" style={styles.startButton} onPress={() => navigation.navigate('Title')}>Start</Button>
             </Surface>
         </View>
     );

@@ -1,0 +1,1552 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Evgo</title>
+  <!-- <link rel='shortcut icon' href='assets/images/2.png' type='image/x-icon'> -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Roboto:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="{{style}}">
+</head>
+
+<body>
+  <!-- all codes for ===***page one***=== starts from here -->
+  <section class="page-one">
+    <div class="container">
+      <div class="text-center">
+        <img src="{{logo}}" alt="a" class="w-100 img-fluid">
+        <h1>CONTRACTOR CLOSE OUT REPORT</h1>
+        <label class="me-2">DATE : </label><span class="clickable">{{formData.date}}</span>
+        <br> <br>
+        <label>Prepared by : </label> <span class="clickable">{{formData.companyname}}</span>
+        <br>
+        <label>for : </label> <span class="clickable">{{formData.pmname}}</span>
+        <br> <br>
+        <label>Project : </label> <span class="clickable">{{formData.projectname}}</span>
+        <h4>Site Address : <span>{{formData.siteaddress}}</span></h4>
+        <br>
+        <hr class="my-5">
+      </div>
+    </div>
+  </section>
+  <!-- all codes for ===***?***=== ended -->
+
+  <!-- all codes for ===***revision-history***=== starts from here -->
+  <section class="revision-history">
+    <div class="container">
+      <h3>Revision History</h3>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Revision</th>
+            <th scope="col">Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{formData.date}}</td>
+            <td>
+              {{formData.revision}}
+            </td>
+            <td> {{formData.revisionnotes}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <hr class="my-5">
+    </div>
+  </section>
+  <!-- all codes for ===***revision-history***=== ended -->
+
+
+  <!-- all codes for ===***contents***=== starts from here -->
+  <section class="contents">
+    <div class="container">
+      <h3>Contents</h3>
+      <div class="border p-3">
+        <div class="d-flex justify-content-between">
+          <p><a href="">1. Project Info</a></p>
+          <p>5</p>
+        </div>
+        <div class="d-flex justify-content-between">
+          <p><a href="">2. Site Details</a></p>
+          <p>5</p>
+        </div>
+        <div class="d-flex justify-content-between">
+          <p><a href="">3. Photo Checklist</a></p>
+          <p>6</p>
+        </div>
+        <div class="d-flex justify-content-between">
+          <p><a href="">4. Additional Tasks</a></p>
+          <p>7</p>
+        </div>
+        <div class="d-flex justify-content-between">
+          <p><a href="">5. Additional Documents</a></p>
+          <p>7</p>
+        </div>
+        <div class="d-flex justify-content-between">
+          <p><a href="">6. Subcontractor / Vendor List</a></p>
+          <p>7</p>
+        </div>
+        <div class="d-flex justify-content-between">
+          <p><a href="">7. Contractor Attestation</a></p>
+          <p>7</p>
+        </div>
+        <div class="d-flex justify-content-between">
+          <p><a href="">8. High Powered Multi-System Data</a></p>
+          <p>8</p>
+        </div>
+        <div class="d-flex justify-content-between">
+          <p><a href="">9. Standalone Charging System Data</a></p>
+          <p>10</p>
+        </div>
+
+        <div>
+          <div class="d-flex justify-content-between">
+            <p><a href="">10. Inspection photos</a></p>
+            <p>11</p>
+          </div>
+          <div class="ps-3 sub-con">
+            <div class="d-flex justify-content-between">
+              <p><a href="">10.1. Final Building Inspection Screenshot</a></p>
+              <p>11</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p><a href="">10.2. Final Electrical Inspection Screenshot</a></p>
+              <p>11</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-between">
+          <p><a href="">11. Site Photos</a></p>
+          <p>12</p>
+        </div>
+        <div class="d-flex justify-content-between">
+          <p><a href="">12. Equipment Pad</a></p>
+          <p>13</p>
+        </div>
+
+        <div>
+          <div class="d-flex justify-content-between">
+            <p><a href="">14. Dispenser - Details</a></p>
+            <p>16</p>
+          </div>
+          <div class="ps-3 sub-con">
+            <div class="d-flex justify-content-between">
+              <p><a href="">14.1. Dispenser 1D</a></p>
+              <p>16</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p><a href="">14.2. Dispenser 2D</a></p>
+              <p>17</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p><a href="">14.3. Dispenser 1D1</a></p>
+              <p>18</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p><a href="">14.4. Dispenser 1D2</a></p>
+              <p>19</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="d-flex justify-content-between">
+            <p><a href="">15. Power Cabinets - Details</a></p>
+            <p>20</p>
+          </div>
+          <div class="ps-3 sub-con">
+            <div class="d-flex justify-content-between">
+              <p><a href="">15.1. Power Cabinet 1P1</a></p>
+              <p>20</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p><a href="">15.2. Power Cabinet 1P2</a></p>
+              <p>21</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-between">
+          <p><a href="">16. Switchgear</a></p>
+          <p>22</p>
+        </div>
+        <div class="d-flex justify-content-between">
+          <p><a href="">17. Transformer + Meter</a></p>
+          <p>23</p>
+        </div>
+        <div class="d-flex justify-content-between">
+          <p><a href="">18. Key Location</a></p>
+          <p>24</p>
+        </div>
+        <div class="d-flex justify-content-between">
+          <p><a href="">19. Project Manager Closeout Checklist (EVgo PM to complete on site)</a></p>
+          <p>25</p>
+        </div>
+      </div>
+      <hr class="my-5">
+  </section>
+  <!-- all codes for ===***contents***=== ended -->
+
+  <!-- all codes for ===***Project Info***=== starts from here -->
+  <section class="project-info">
+    <div class="container">
+      <h2 class="main-heading">01. Project Info</h2>
+      <div class="p-3">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Project Name:</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{formData.projectname}}</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Site Address:</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{formData.siteaddress}}</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Service Address:</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{formData.siteaddress}}</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">General Contractor of Record:</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{formData.utilitycompanyname}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <hr class="my-5">
+    </div>
+  </section>
+  <!-- all codes for ===***Project Info***=== ended -->
+
+  <!-- all codes for ===***?***=== starts from here -->
+  <section class="site-details">
+    <div class="container">
+      <h2 class="main-heading">02. Site Details</h2>
+      <div class="p-3">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Utility:</th>
+              <th scope="col">{{formData.utilitycompanyname}}</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Meter Number:</td>
+              <td>{{formData.meternumber}}</td>
+              <td></td>
+            </tr>
+
+            <tr>
+              <td>Transformer Number:</td>
+              <td>{{formData.transformernumber}}</td>
+              <td></td>
+            </tr>
+
+            <tr>
+              <td>Transformer Power Rating:</td>
+              <td>{{formData.transformerpowerrating}}</td>
+              <td>kVA</td>
+            </tr>
+            <tr>
+              <td>Transformer Percent Z:</td>
+              <td>{{formData.transformerpercentz}}</td>
+              <td>% Z</td>
+            </tr>
+            <tr>
+              <td>Service Voltage</td>
+              <!-- <input type="radio" name="imgsel" value="" checked> -->
+
+              {{#ifCond formData.servicevoltage "480/277V"}}
+              <td><input type="radio" name="volta" checked>480/277V</td>
+              <td><input type="radio" name="volta">120/208V</td>
+              {{else}}
+              <td><input type="radio" name="volta">480/277V</td>
+              <td><input type="radio" name="volta" checked>120/208V</td>
+              {{/ifCond}}
+            </tr>
+            <tr>
+              <td>Service Amperage:</td>
+              <td>{{formData.serviceamperage}}</td>
+              <td>Amps</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table class="table table-bordered">
+          <tr>
+            <td colspan="4"><strong>Site Coordinates</strong></td>
+          </tr>
+          <tr>
+            <td>Longitude:</td>
+            <td>{{formData.latitude}}</td>
+            <td>Longitude:</td>
+            <td>{{formData.longitude}}</td>
+          </tr>
+        </table>
+
+        <p><strong>Notes:</strong> </p>
+        <p>Select ANY parking stall near a dispenser, record dispenser name and coordinates above.
+          You can determine the latitude/ longitude by dropping a pin in mapping app on your cell phone (Google Maps/
+          Apple Maps), then scroll down</p>
+      </div>
+      <hr class="my-5">
+    </div>
+  </section>
+  <!-- all codes for ===***?***=== ended -->
+
+  <!-- all codes for ===***Photo Checklist***=== starts from here -->
+  <!-- <section class="Photo-Checklist">
+    <div class="container">
+      <h2 class="main-heading">03. Photo Checklist</h2>
+
+      <div class="p-3">
+        <table class="table table-bordered">
+
+          <tbody>
+            <tr>
+              <td colspan="2"><input type="checkbox" class="me-2" name="" id=""> Close-out photos uploaded to Site
+                Tracker Daily Log
+              </td>
+            </tr>
+
+            <tr>
+              <td colspan="2"><strong>Inspection photos</strong></td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" class="me-2" name="" id=""> Screenshots of approved Final Building and
+                Electrical permits
+              </td>
+              <td><input type="checkbox" class="me-2" name="" id=""> Final signed job card(s) if applicable</td>
+            </tr>
+            <tr>
+              <td colspan="2"><strong>Site Photos - Overall</strong></td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" class="me-2" name="" id="">Wide angle photo of dispenser(s) from all 4
+                directions</td>
+              <td><input type="checkbox" class="me-2" name="" id="">EVgo Stall and Wayfinding equipment</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" class="me-2" name="" id="">Civil work (ramps, curbs, railings, bollards, etc.)
+              </td>
+              <td><input type="checkbox" class="me-2" name="" id="">Striping and pavement</td>
+            </tr>
+            <tr>
+              <td colspan="2"><strong>Site Photos – Equipment Pad</strong></td>
+            </tr>
+
+            <tr>
+              <td><input type="checkbox" class="me-2" name="" id="">Wide angle photos of distribution equipment (2
+                sides)</td>
+              <td><input type="checkbox" class="me-2" name="" id="">Wide angle of general area of pad</td>
+            </tr>
+            <tr>
+              <td colspan="2"><strong>Equipment Photos -Dispensers Powered On (for each)</strong></td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" class="me-2" name="" id="">Close up photo dispenser with screen on
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2"><strong>Equipment Photos -Dispenser Details (for each)</strong></td>
+            </tr>
+
+            <tr>
+              <td><input type="checkbox" class="me-2" name="" id="">Dispenser manufacturer labels (UL, part #, serial #)
+              </td>
+              <td><input type="checkbox" class="me-2" name="" id="">Dispenser personality name and ID labels </td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" class="me-2" name="" id="">Dispenser interior photo
+              </td>
+              <td><input type="checkbox" class="me-2" name="" id="">Dispenser IMEI and IP photo from Cradlepoint box
+              </td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" class="me-2" name="" id="">Dispenser wiring terminals (label photo with CID #)
+              </td>
+              <td><input type="checkbox" class="me-2" name="" id="">Dispenser wire terminal torque measurement</td>
+            </tr>
+            <tr>
+              <td colspan="2"><strong>Equipment Photos -Power Cabinet (for each)</strong></td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" class="me-2" name="" id="">Power cabinet exterior photo
+              </td>
+              <td><input type="checkbox" class="me-2" name="" id="">Power cabinet ID label (serial # plate)</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" class="me-2" name="" id="">Power cabinet interior photo
+              </td>
+              <td><input type="checkbox" class="me-2" name="" id="">Power cabinet wire terminal torque measurement</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" class="me-2" name="" id="">Power cabinet wiring terminals (photo with CID #)
+              </td>
+            </tr>
+
+            <tr>
+              <td colspan="2"><strong>Equipment Photos -Switchgear</strong></td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" class="me-2" name="" id="">Switchgear manufacturer label</td>
+              <td><input type="checkbox" class="me-2" name="" id="">Wide angle photo of the outside of switchgear</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" class="me-2" name="" id="">Switchboard inside of switchgear (door open) showing
+                breaker feeder torque setting label on wires
+              </td>
+              <td><input type="checkbox" class="me-2" name="" id="">Switchgear interior – showing main breaker settings
+              </td>
+            </tr>
+
+            <tr>
+              <td colspan="2"><strong>Equipment Photos -Transformer</strong></td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" class="me-2" name="" id="">Transformer nameplate with VA and Max Z (if visible)
+              </td>
+              <td><input type="checkbox" class="me-2" name="" id="">Meter face - number
+              </td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" class="me-2" name="" id="">Wide angle photo of transformer</td>
+            </tr>
+
+            <tr>
+              <td colspan="2"><strong>Key Location Photos</strong></td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" class="me-2" name="" id="">Key location in meter pedestal/switchgear door
+                pocket or hook</td>
+              <td><input type="checkbox" class="me-2" name="" id="">Lock box code</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <hr class="my-5">
+    </div>
+  </section> -->
+  <!-- all codes for ===***Photo Checklist***=== ended -->
+
+  <!-- all codes for ===***additional-task***=== starts from here -->
+  <section class="additional-task">
+    <div class="container">
+      <h2 class="main-heading">04. Additional Tasks</h2>
+
+      <div class="p-3">
+        <table class="table table-bordered">
+
+          <tbody>
+            <tr>
+              <td>Were there any changes to approved plans?
+                If yes, submit marked up plans to your EVgo PM</td>
+              {{#ifCond formData.changestoapprovedplans "Yes"}}
+              <td><input type="radio" class="me-2" name="pm" id="" checked>Yes</td>
+              <td><input type="radio" class="me-2" name="pm" id="">No</td>
+              {{else}}
+              <td><input type="radio" class="me-2" name="pm" id="">Yes</td>
+              <td><input type="radio" class="me-2" name="pm" id="" checked>No</td>
+              {{/ifCond}}
+            </tr>
+            <tr>
+              <td>Charger keys labeled and left in meter pedestal/ switchgear</td>
+              {{#ifCond formData.chargerkeyslabeled "Yes"}}
+              <td><input type="radio" class="me-2" name="ef" id="" checked>Yes</td>
+              <td><input type="radio" class="me-2" name="ef" id="">No</td>
+              {{else}}
+              <td><input type="radio" class="me-2" name="ef" id="">Yes</td>
+              <td><input type="radio" class="me-2" name="ef" id="" checked>No</td>
+              {{/ifCond}}
+            </tr>
+            <tr>
+              <td>Install 4-digit combo lock set to site address. If less than four numbers, use preceding zero (ex.
+                0426)
+              </td>
+              <td>Combo Lock set to:</td>
+              <td class="px-3">{{formData.4digitcombolockset}} </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <hr class="my-5">
+    </div>
+  </section>
+  <!-- all codes for ===***additional-task***=== ended -->
+
+  <!-- all codes for ===***Docs***=== starts from here -->
+  <section class="Docs">
+    <div class="container">
+      <h2 class="main-heading">05. Additional Documents</h2>
+
+      <div class="p-3">
+        <table class="table table-bordered">
+
+          <tbody>
+            <tr>
+              <td>Certificate of Warranty</td>
+              {{#ifCond formData.certificateofwarranty "Yes"}}
+              <td><input type="radio" class="me-2" name="A" id="" checked>Yes</td>
+              <td><input type="radio" class="me-2" name="A" id="">No</td>
+              {{else}}
+              <td><input type="radio" class="me-2" name="A" id="">Yes</td>
+              <td><input type="radio" class="me-2" name="A" id="" checked>No</td>
+              {{/ifCond}}
+            </tr>
+            <tr>
+              <td>Signed Inspection Card (front and back, if applicable)</td>
+              {{#ifCond formData.signedinspectioncard "Yes"}}
+              <td><input type="radio" class="me-2" name="b" id="" checked>Yes</td>
+              <td><input type="radio" class="me-2" name="b" id="">No</td>
+              {{else}}
+              <td><input type="radio" class="me-2" name="b" id="">Yes</td>
+              <td><input type="radio" class="me-2" name="b" id="" checked>No</td>
+              {{/ifCond}}
+            </tr>
+            <tr>
+              <td>As Built drawings (and original stamped drawing, if not already received)
+              </td>
+              {{#ifCond formData.asbuiltdrawings "Yes"}}
+              <td><input type="radio" class="me-2" name="aa" id="" checked>Yes</td>
+              <td><input type="radio" class="me-2" name="aa" id="">No</td>
+              {{else}}
+              <td><input type="radio" class="me-2" name="aa" id="">Yes</td>
+              <td><input type="radio" class="me-2" name="aa" id="" checked>No</td>
+              {{/ifCond}}
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <hr class="my-5">
+    </div>
+  </section>
+  <!-- all codes for ===***Docs***=== ended -->
+
+  <!-- all codes for ===***subcontractor***=== starts from here -->
+  <section class="subcontractor">
+    <div class="container">
+      <h2 class="main-heading">06. Subcontractor / Vendor List</h2>
+
+      <div class="p-3">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Trade</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{formData.companyName}}</td>
+              <td>General Contractor</td>
+            </tr>
+            <tr>
+              <td>{{formData.subcontractor2}}</td>
+              <td>{{formData.subcontractortrade2}}</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+            </tr>
+            </tbody>
+        </table>
+      </div>
+
+      <hr class="my-5">
+    </div>
+  </section>
+  <!-- all codes for ===***subcontractor***=== ended -->
+
+  <!-- all codes for ===***subcontractor***=== starts from here -->
+  <section class="subcontractor">
+    <div class="container">
+      <h2 class="main-heading">07. Contractor Attestation</h2>
+
+      <div class="p-3 border my-2">
+        <p>CONTRACTOR (OR BY AND THROUGH HIS AGENT) HEREBY CONFIRMS AND VERIFIES THAT THE AS-BUILT DRAWINGS ACCURATELY
+          REPRESENT THE INSTALLATION OF THE ELECTRICAL VEHICLE CHARGING STATION INSTALLED AT THE ABOVE REFERENCED
+          PROJECT LOCATION. THE CHARGING STATION SYSTEM IS CONSISTENT WITH THE PROJECT PLAN DRAWINGS APPROVED BY THE
+          LOCAL AUTHORITY HAVING JURISDICTION AND ANY APPROVED FIELD ADJUSTMENTS MADE DURING CONSTRUCTION. THE CHARGING
+          STATION SYSTEM IS CONSISTENT WITH THE INSTALLED EQUIPMENT MANUFACTURER’S STANDARDS.
+        </p>
+        <table class="table table-bordered mt-3">
+          <tbody>
+            <tr>
+              <td colspan="2">Prepared by: {{formData.preparedByName}}</td>
+            </tr>
+            <tr>
+              <td>Signature</td>
+              <td>Date</td>
+            </tr>
+            <tr>
+              <td class="signature">{{formData.preparedBySignature}}</td>
+              <td>{{formData.preparedByDate}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <hr class="my-5">
+    </div>
+  </section>
+  <!-- all codes for ===***subcontractor***=== ended -->
+
+  <!-- all codes for ===***hpm-data***=== starts from here -->
+  <section class="hpm-data">
+    <div class="container">
+      <h2 class="main-heading">08. High Powered Multi-System Data</h2>
+      <p class="pb-2">Refer to the naming convention support document for system naming.</p>
+      <p class="pb-2">Voltage data to be recorded after energization by the utility and not from pre-commissioning
+        conditions.</p>
+
+      <!-- Cabinet Data -->
+      <div>
+        <h6 class="color-tilt pb-1">Cabinet Data</h6>
+        <table class="table table-bordered">
+          <thead>
+            <tr class="bg-blue text-white">
+              <th scope="col">Cabinet Name</th>
+              <th scope="col">Manufacturer</th>
+              <th scope="col">Part Number</th>
+              <th scope="col">Serial Number</th>
+              <th scope="col">Breaker Rating [A]</th>
+              <th scope="col">Terminal Wire Torque [Nm]</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{formData.cabinetname1}}</td>
+              <td>{{formData.cabinetmanufacturer1}}</td>
+              <td>{{formData.cabinetpartnumber1}}</td>
+              <td>{{formData.cabinetserialnumber1}}</td>
+              <td>{{formData.cabinetbreakerrating1}}</td>
+              <td>{{formData.cabinetterminalwiretorque1}}</td>
+            </tr>
+            <tr>
+              <!-- <td>1P2</td>
+              <td>SIGNET</td>
+              <td>APBK17-000006</td>
+              <td>Q1130210262</td>
+              <td>400A</td>
+              <td>32.0</td> -->
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Dispenser Data -->
+      <div>
+        <h6 class="color-tilt pb-1">Dispenser Data</h6>
+        <table class="table table-bordered">
+          <thead>
+            <tr class="bg-blue text-white">
+              <th scope="col">Dispenser Name</th>
+              <th scope="col">Connected Cabinet ID # </th>
+              <th scope="col">Personality Name</th>
+              <th scope="col">Part Number</th>
+              <th scope="col">Serial Number</th>
+              <th scope="col">Cradlepoint IP</th>
+              <th scope="col">Terminal Wire Torque [Nm]</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{formData.dispensername1}}</td>
+              <td>{{formData.dispenserconnectedcabinetid1}}</td>
+              <td>{{formData.dispenserperonalityname1}}</td>
+              <td>{{formData.dispenserpartnumber1}}</td>
+              <td>{{formData.dispenserserialnumber1}}</td>
+              <td>{{formData.dispensercradlepointip1}}</td>
+              <td>{{formData.dispenserterminalwiretorque1}}</td>
+            </tr>
+            <tr>
+              <!-- <td>1D2</td>
+              <td>1P2</td>
+              <td></td>
+              <td>ADPK35-000014</td>
+              <td>DB1130210261</td>
+              <td></td>
+              <td>20.0</td> -->
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Cabinet Voltage Readings -->
+      <div>
+        <h6 class="color-tilt pb-1">Cabinet Voltage Readings</h6>
+        <table class="table table-bordered">
+          <thead>
+            <tr class="bg-blue text-white">
+              <th scope="col">Cabinet Name</th>
+              <th scope="col">L1 to Ground [V]</th>
+              <th scope="col">L2 to Ground [V]</th>
+              <th scope="col">L3 to Ground [V]</th>
+              <th scope="col">L1 to L2 [V]</th>
+              <th scope="col">L2 to L3 [V]</th>
+              <th scope="col">L1 to L3 [V]</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1P1</td>
+              <td>{{formData.cabinetl1toground1}}</td>
+              <td>{{formData.cabinetl2toground1}}</td>
+              <td>{{formData.cabinetl3toground1}}</td>
+              <td>{{formData.cabinetl1tol21}}</td>
+              <td>{{formData.cabinetl2tol31}}</td>
+              <td>{{formData.cabinetl1tol31}}</td>
+            </tr>
+            <tr>
+              <!-- <td>1P1</td>
+              <td>282</td>
+              <td>283</td>
+              <td>285</td>
+              <td>490</td>
+              <td>494</td>
+              <td>493</td> -->
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Dispenser Voltage Readings -->
+      <div>
+        <h6 class="color-tilt pb-1">Dispenser Voltage Readings</h6>
+        <table class="table table-bordered">
+          <thead>
+            <tr class="bg-blue text-white">
+              <th scope="col">Dispenser Name</th>
+              <th scope="col">L1 to Ground [V]</th>
+              <th scope="col">L1 to Neutral [V]</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1D1</td>
+              <td>{{formData.dispenserl1toground1}}</td>
+              <td>{{formData.dispenserl2toground1}}</td>
+            </tr>
+            <tr>
+              <!-- <td>1D2</td>
+              <td>281</td>
+              <td>279</td> -->
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Switchgear Voltage Readings -->
+      <div>
+        <h6 class="color-tilt pb-1">Switchgear Voltage Readings</h6>
+        <table class="table table-bordered">
+          <thead>
+            <tr class="bg-blue text-white">
+              <th scope="col">Panel</th>
+              <th scope="col">To Cabinet</th>
+              <th scope="col">L1 to Ground [V]</th>
+              <th scope="col">L2 to Ground [V]</th>
+              <th scope="col">L3 to Ground [V]</th>
+              <th scope="col">L1 to L2 [V]</th>
+              <th scope="col">L2 to L3 [V]</th>
+              <th scope="col">L1 to L3 [V]</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>SWGR</td>
+              <td>{{formData.dispenserName1}}</td>
+              <td>{{formData.dispenserl1toground1}}</td>
+              <td>{{formData.dispenserl2toground1}}</td>
+              <td>{{formData.dispenserl3toground1}}</td>
+              <td>{{formData.dispenserl1tol21}}</td>
+              <td>{{formData.dispenserl2tol31}}</td>
+              <td>{{formData.dispenserl1tol31}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <hr class="my-5">
+    </div>
+  </section>
+  <!-- all codes for ===***hpm-data***=== ended -->
+
+
+  <!-- all codes for ===***strandard-CH***=== starts from here -->
+  <section class="strandard-CH">
+    <div class="container">
+      <h2 class="main-heading">09. Standalone Charging System Data</h2>
+      <p class="pb-2">Refer to the naming convention support document for system naming.</p>
+      <p class="pb-2">Voltage data to be recorded after energization by the utility and not from pre-commissioning
+        conditions.</p>
+
+
+      <!-- Dispenser Data -->
+      <div>
+        <h6 class="color-tilt pb-1">Dispenser Data</h6>
+        <table class="table table-bordered">
+          <thead>
+            <tr class="bg-blue text-white">
+              <th scope="col">Dispenser Name</th>
+              <th scope="col">Manufacturer</th>
+              <th scope="col">Part Number</th>
+              <th scope="col">Serial Number</th>
+              <th scope="col">Breaker Rating [A]</th>
+              <th scope="col">Terminal Wire Torque [Nm] </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{formData.standalonedispensername1}}</td>
+              <td>{{formData.standalonemanufacturer1}}</td>
+              <td>{{formData.standalonepartnumber1}}</td>
+              <td>{{formData.standaloneserialnumber1}}</td>
+              <td>{{formData.standalonebreakerrating1}}</td>
+              <td>{{formData.standaloneterminalwiretorque1}}</td>
+            </tr>
+            <tr>
+              <!-- <td>1D</td>
+              <td>DELTA</td>
+              <td>EVHU104UPAB26EG</td>
+              <td>J86220400002P0</td>
+              <td>175A</td>
+              <td>20.0</td> -->
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+
+      <!-- Dispenser Voltage Readings -->
+      <div>
+        <h6 class="color-tilt pb-1">Dispenser Voltage Readings</h6>
+        <table class="table table-bordered">
+          <thead>
+            <tr class="bg-blue text-white">
+              <th scope="col">Dispenser Name</th>
+              <th scope="col">L1 to Ground [V]</th>
+              <th scope="col">L2 to Ground [V]</th>
+              <th scope="col">L3 to Ground [V]</th>
+              <th scope="col">L1 to L2 [V]</th>
+              <th scope="col">L2 to L3 [V]</th>
+              <th scope="col">L1 to L3 [V]</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{formData.standalonedispensername1}}</td>
+              <td>{{formData.standalonedispenserl1toground1}}</td>
+              <td>{{formData.standalonedispenserl2toground1}}</td>
+              <td>{{formData.standalonedispenserl3toground1}}</td>
+              <td>{{formData.standalonedispenserl1tol21}}</td>
+              <td>{{formData.standalonedispenserl2tol31}}</td>
+              <td>{{formData.standalonedispenserl1tol31}}</td>
+            </tr>
+            <!-- <tr>
+              <td>2D</td>
+              <td>282</td>
+              <td>283</td>
+              <td>285</td>
+              <td>490</td>
+              <td>494</td>
+              <td>492</td>
+            </tr>
+            <tr>
+              <td>3D</td>
+              <td>283</td>
+              <td>281</td>
+              <td>281</td>
+              <td>488</td>
+              <td>488</td>
+              <td>485</td>
+            </tr>
+            <tr>
+              <td>4D</td>
+              <td>283</td>
+              <td>281</td>
+              <td>281</td>
+              <td>487</td>
+              <td>488</td>
+              <td>485</td>
+            </tr> -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Switchgear Voltage Readings -->
+      <div>
+        <h6 class="color-tilt pb-1">Switchgear Voltage Readings</h6>
+        <table class="table table-bordered">
+          <thead>
+            <tr class="bg-blue text-white">
+              <th scope="col">Panel</th>
+              <th scope="col">To Cabinet</th>
+              <th scope="col">L1 to Ground [V]</th>
+              <th scope="col">L2 to Ground [V]</th>
+              <th scope="col">L3 to Ground [V]</th>
+              <th scope="col">L1 to L2 [V]</th>
+              <th scope="col">L2 to L3 [V]</th>
+              <th scope="col">L1 to L3 [V]</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>SWGR</td>
+              <td>1D</td>
+              <td>{{formData.standalonepanell1toground1}}</td>
+              <td>{{formData.standalonepanell2toground1}}</td>
+              <td>{{formData.standalonepanell3toground1}}</td>
+              <td>{{formData.standalonepanell1tol21}}</td>
+              <td>{{formData.standalonepanell2tol31}}</td>
+              <td>{{formData.standalonepanell1tol31}}</td>
+            </tr>
+            <!-- <tr>
+              <td>SWGR</td>
+              <td>2D</td>
+              <td>282</td>
+              <td>285</td>
+              <td>286</td>
+              <td>490</td>
+              <td>492</td>
+              <td>494</td>
+            </tr> -->
+          </tbody>
+        </table>
+      </div>
+
+      <hr class="my-5">
+    </div>
+  </section>
+  <!-- all codes for ===***strandard-CH***=== ended -->
+
+  <!-- all codes for ===***ins-photo***=== starts from here -->
+  <section class="ins-photo pt-5">
+    <div class="container">
+      <h2 class="main-heading">
+        10. Inspection photos
+      </h2>
+      <div class="p-3">
+        <h5 class="pb-2">10.1 Final Building Inspection</h5>
+
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Inspection</th>
+              <th></th>
+              <th scope="col">Outcome</th>
+              <th scope="col">Requested</th>
+              <th scope="col">Scheduled</th>
+              <th scope="col">Data Inspected</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="2">Building Final Inspection</td>
+              <td></td>
+              <td>Passed</td>
+              <td>11/9/2022</td>
+              <td>11/9/2022</td>
+              <td>11/9/2022</td>
+            </tr>
+            <tr>
+              <td>Inspector:
+                <br>
+                Comments:
+              </td>
+              <td colspan="4">John Cassidy ((678) 493-6234) <a href="mailto:abc@mail.com">Send mail</a>
+                <br> <span>&#60;&#60;</span>Projected time for inspector arrival is between 8AM and 11:3PM on Wednesday,
+                November 9, 2022 <span>&#62;&#62;</span>
+              </td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td rowspan="2">Electrical Final Inspection</td>
+              <td></td>
+              <td>Passed</td>
+              <td>11/9/2022</td>
+              <td>11/9/2022</td>
+              <td>11/9/2022</td>
+            </tr>
+            <tr>
+              <td>Inspector:
+                <br>
+                Comments:
+              </td>
+              <td colspan="4">John Cassidy ((678) 493-6234) <a href="mailto:abc@mail.com">Send mail</a>
+                <br> <span>&#60;&#60;</span>Projected time for inspector arrival is between 8AM and 11:3PM on Wednesday,
+                November 9, 2022 <span>&#62;&#62;</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="p-3">
+        <h5 class="pb-2">10.2 Final Electrical Inspection</h5>
+
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Inspection</th>
+              <th></th>
+              <th scope="col">Outcome</th>
+              <th scope="col">Requested</th>
+              <th scope="col">Scheduled</th>
+              <th scope="col">Data Inspected</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="2">Building Final Inspection</td>
+              <td></td>
+              <td>Passed</td>
+              <td>11/9/2022</td>
+              <td>11/9/2022</td>
+              <td>11/9/2022</td>
+            </tr>
+            <tr>
+              <td>Inspector:
+                <br>
+                Comments:
+              </td>
+              <td colspan="4">John Cassidy ((678) 493-6234) <a href="mailto:abc@mail.com">Send mail</a>
+                <br> <span>&#60;&#60;</span>Projected time for inspector arrival is between 8AM and 11:3PM on Wednesday,
+                November 9, 2022 <span>&#62;&#62;</span>
+              </td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td rowspan="2">Electrical Final Inspection</td>
+              <td></td>
+              <td>Passed</td>
+              <td>11/9/2022</td>
+              <td>11/9/2022</td>
+              <td>11/9/2022</td>
+            </tr>
+            <tr>
+              <td>Inspector:
+                <br>
+                Comments:
+              </td>
+              <td colspan="4">John Cassidy ((678) 493-6234) <a href="mailto:abc@mail.com">Send mail</a>
+                <br> <span>&#60;&#60;</span>Projected time for inspector arrival is between 8AM and 11:3PM on Wednesday,
+                November 9, 2022 <span>&#62;&#62;</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <hr class="my-5">
+    </div>
+  </section>
+  <!-- all codes for ===***ins-photo***=== ended -->
+
+  <!-- all codes for ===***site-photos***=== starts from here -->
+  <section class="site-photos pt-5">
+    <div class="container">
+      <h2 class="main-heading">11. Site Photos</h2>
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <p>North</p>
+          <img src="{{photos.Constants.sitenorth}}" alt="site-photos" class="w-100 img-fluid">
+        </div>
+        <div class="col-lg-6">
+          <p>South</p>
+          <img src="{{photos.Constants.sitesouth}}" alt="site-photos" class="w-100 img-fluid">
+        </div>
+        <div class="col-lg-6">
+          <p>East</p>
+          <img src="{{photos.Constants.siteeast}}" alt="site-photos" class="w-100 img-fluid">
+        </div>
+        <div class="col-lg-6">
+          <p>West</p>
+          <img src="{{photos.Constants.sitewest}}" alt="site-photos" class="w-100 img-fluid">
+        </div>
+      </div>
+
+      <hr class="my-5">
+    </div>
+  </section>
+  <!-- all codes for ===***site-photos***=== ended -->
+
+  <!-- all codes for ===***Equipment Pad***=== starts from here -->
+  <section class="Equipment-Pad pt-5">
+    <div class="container">
+      <h2 class="main-heading">12. Equipment Pad</h2>
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <p>Left</p>
+          <img src="{{photos.Constants.padleft}}" alt="site-photos" class="w-100 img-fluid">
+        </div>
+        <div class="col-lg-6">
+          <p>Right</p>
+          <img src="{{photos.Constants.padright}}" alt="site-photos" class="w-100 img-fluid">
+        </div>
+        <div class="col-lg-6">
+          <p>Overall</p>
+          <img src="{{photos.Constants.padoverall}}" alt="site-photos" class="w-100 img-fluid">
+        </div>
+      </div>
+
+      <hr class="my-5">
+    </div>
+  </section>
+  <!-- all codes for ===***Equipment Pad***=== ended -->
+
+  <!-- all codes for ===***Dispensers-On***=== starts from here -->
+  <section class="Dispensers-On pt-5">
+    <div class="container">
+      <h2 class="main-heading">13. Dispensers – Powered On</h2>
+      <div class="row g-4">
+        {{#each photos.TypeDDispensers}}
+        <div class="col-lg-6">
+          <p>Dispenser {{this.DispenserNumber}}D [DELTA]</p>
+          <img src="{{this.Photos.poweron}}" alt="site-photos" class="w-100 img-fluid">
+        </div>
+        {{/each}}
+        {{#each photos.Type1DDispensers}}
+        <div class="col-lg-6">
+          <p>Dispenser 1D{{this.DispenserNumber}} [SIGNET]</p>
+          <img src="{{this.Photos.poweron}}" alt="site-photos" class="w-100 img-fluid">
+        </div>
+        {{/each}}
+      </div>
+
+      <hr class="my-5">
+    </div>
+  </section>
+  <!-- all codes for ===***Dispensers-On***=== ended -->
+
+  <!-- all codes for ===***dispenser-details***1=== starts from here -->
+  <section class="dispenser-details pt-5">
+    <div class="container">
+      <h2 class="main-heading">14. Dispenser - Details </h2>
+
+      {{#each photos.TypeDDispensers}}
+      <div class="p-3 border my-2">
+        <h6 class="color-tilt pb-2">14.{{this.OverallDispenserNumber}} Dispenser {{this.DispenserNumber}}D</h6>
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="image-wrapper border">
+              <p>Dispenser Outside</p>
+              <img src="{{this.Photos.outside}}" alt="dipenser image" class="w-100 img-fluid">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="image-wrapper border">
+              <p>Dispenser Inside </p>
+              <img src="{{this.Photos.inside}}" alt="dipenser image" class="w-100 img-fluid">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="image-wrapper border">
+              <p>Dispenser nameplate</p>
+              <img src="{{this.Photos.nameplate}}" alt="dipenser image" class="w-100 img-fluid">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="image-wrapper border">
+              <p>Dispenser Wire Terminals</p>
+              <img src="{{this.Photos.wireterminals}}" alt="dipenser image" class="w-100 img-fluid">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="image-wrapper border">
+              <p>Dispenser Wire Terminal Torque
+              </p>
+              <img src="{{this.Photos.wireterminaltorque}}" alt="dipenser image" class="w-100 img-fluid">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="image-wrapper border">
+              <p>Dispenser Cradlepoint Label</p>
+              <img src="{{this.Photos.cradlepointlabel}}" alt="dipenser image" class="w-100 img-fluid">
+            </div>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+
+      {{#each photos.Type1DDispensers}}
+      <div class="p-3 border my-2">
+        <h6 class="color-tilt pb-2">14.{{this.OverallDispenserNumber}} Dispenser 1D{{this.DispenserNumber}}</h6>
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="border image-wrapper">
+              <p>Dispenser Outside</p>
+              <img src="{{this.Photos.outside}}" alt="dipenser image" class="w-100 img-fluid">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="border image-wrapper">
+              <p>Dispenser Inside </p>
+              <img src="{{this.Photos.inside}}" alt="dipenser image" class="w-100 img-fluid">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="border image-wrapper">
+              <p>Dispenser nameplate</p>
+              <img src="{{this.Photos.nameplate}}" alt="dipenser image" class="w-100 img-fluid">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="border image-wrapper">
+              <p>Dispenser Wire Terminals</p>
+              <img src="{{this.Photos.wireterminals}}" alt="dipenser image" class="w-100 img-fluid">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="border image-wrapper">
+              <p>Dispenser Wire Terminal Torque
+              </p>
+              <img src="{{this.Photos.wireterminaltorque}}" alt="dipenser image" class="w-100 img-fluid">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="border image-wrapper">
+              <p>Dispenser Cradlepoint Label</p>
+              <img src="{{this.Photos.cradlepointlabel}}" alt="dipenser image" class="w-100 img-fluid">
+            </div>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+
+      <hr class="my-5">
+    </div>
+  </section>
+  <!-- all codes for ===***dispenser-details***1=== ended -->
+
+  <!-- all codes for ===***Power Cabinets - Details***1=== starts from here -->
+  <section class="PowerCabinets-Details pt-5">
+    <div class="container">
+      <h2 class="main-heading">15. Power Cabinets - Details </h2>
+
+      {{#each photos.PowerCabinets}}
+      <div class="p-3 border my-2">
+        <h6 class="color-tilt pb-2">15.{{this.PowerCabinetNumber}} Power Cabinet 1P{{this.PowerCabinetNumber}}</h6>
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class=" image-wrapper border">
+              <p>Power Cabinet Outside</p>
+              <img src="{{this.Photos.cabinetsoutside}}" alt="dipenser image" class="w-100 img-fluid">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class=" image-wrapper border">
+              <p>Power Cabinet Inside</p>
+              <img src="{{this.Photos.cabinetsinside}}" alt="dipenser image" class="w-100 img-fluid">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class=" image-wrapper border">
+              <p>Power Cabinet Nameplate</p>
+              <img src="{{this.Photos.cabinetsnameplate}}" alt="dipenser image" class="w-100 img-fluid">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class=" image-wrapper border">
+              <p>Power Cabinet Wire Terminals</p>
+              <img src="{{this.Photos.cabinetswireterminals}}" alt="dipenser image" class="w-100 img-fluid">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class=" image-wrapper border">
+              <p>Power Cabinet Wire Terminal Torque</p>
+              <img src="{{this.Photos.cabinetswireterminaltorque}}" alt="dipenser image" class="w-100 img-fluid">
+            </div>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+
+      <hr class="my-5">
+    </div>
+  </section>
+  <!-- all codes for ===***Power Cabinets - Details***1=== ended -->
+
+  <!-- all codes for ===***Switchgear***1=== starts from here -->
+  <section class="Switchgear pt-5">
+    <div class="container">
+      <h2 class="main-heading">16. Switchgear</h2>
+
+      <div class="p-3 border my-2">
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class=" image-wrapper border">
+              <p>Switchgear Outside</p>
+              <img src="{{photos.Constants.switchgearoutside}}" alt="dipenser image" class="w-100 img-fluid">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class=" image-wrapper border">
+              <p>Switchgear Inside – Breaker Settings</p>
+              <img src="{{photos.Constants.switchgearinside}}" alt="dipenser image" class="w-100 img-fluid">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class=" image-wrapper border">
+              <p>Switchgear Nameplate</p>
+              <img src="{{photos.Constants.switchgearnameplate}}" alt="dipenser image" class="w-100 img-fluid">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class=" image-wrapper border">
+              <p>Switchgear Wire Terminal Torque</p>
+              <img src="{{photos.Constants.switchgearwire}}" alt="dipenser image" class="w-100 img-fluid">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="my-5">
+    </div>
+  </section>
+  <!-- all codes for ===***Switchgear***1=== ended -->
+
+  <!-- all codes for ===***Transformer + Meter***1=== starts from here -->
+  <section class="Transformer-Meter pt-5">
+    <div class="container">
+      <h2 class="main-heading">17. Transformer + Meter</h2>
+
+      <div class="p-3 border my-2">
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class=" image-wrapper border">
+              <p>Transformer Outside</p>
+              <img src="{{photos.Constants.transformeroutside}}" alt="dipenser image" class="w-100 img-fluid">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class=" image-wrapper border">
+              <p>Transformer Nameplate</p>
+              <img src="{{photos.Constants.transformernameplate}}" alt="dipenser image" class="w-100 img-fluid">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class=" image-wrapper border">
+              <p>Transformer Number</p>
+              <img src="{{photos.Constants.transformernumber}}" alt="dipenser image" class="w-100 img-fluid">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class=" image-wrapper border">
+              <p>Meter Face</p>
+              <img src="{{photos.Constants.transformerface}}" alt="dipenser image" class="w-100 img-fluid">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="my-5">
+    </div>
+  </section>
+  <!-- all codes for ===***Transformer + Meter***1=== ended -->
+
+  <!-- all codes for ===***Key Location***1=== starts from here -->
+  <section class="Key-Location pt-5">
+    <div class="container">
+      <h2 class="main-heading">18. Key Location</h2>
+
+      <div class="p-3 border my-2">
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class=" image-wrapper border">
+              <p>Key Lockbox Location</p>
+              <img src="{{photos.Constants.transformerlockbox}}" alt="dipenser image" class="w-100 img-fluid">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class=" image-wrapper border">
+              <p>Lockbox Code</p>
+              <img src="{{photos.Constants.transformercode}}" alt="dipenser image" class="w-100 img-fluid">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class=" image-wrapper border">
+              <p>Detailed Lockbox Location</p>
+              <img src="{{photos.Constants.transformerlocation}}" alt="dipenser image" class="w-100 img-fluid">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="my-5">
+    </div>
+  </section>
+  <!-- all codes for ===***Key Location***1=== ended -->
+
+  <!-- all codes for ===***project-mgr-checklist***1=== starts from here -->
+  <section class="project-mgr-checklist pt-5">
+    <div class="container">
+      <h2 class="main-heading">19. Project Manager Closeout Checklist <span class="fs-6">(EVgo PM to complete on
+          site)</span> </h2>
+
+
+      <div class="p-3">
+        <table class="table table-bordered">
+          <tbody>
+            <tr>
+              <td><input type="checkbox" class="me-2" name="" id="">Station built to plans or “as-builts” provided</td>
+              <td><input type="checkbox" class="me-2" name="" id="">Stall dimensions are accurate and to code</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" class="me-2" name="" id="">Complete set of installation photos per photo
+                checklist</td>
+              <td><input type="checkbox" class="me-2" name="" id="">Stall striping and markings are painted to plans
+              </td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" class="me-2" name="" id="">Bollard sleeves and reflective tape applied</td>
+              <td><input type="checkbox" class="me-2" name="" id="">Stall signage/wayfinding signs installed per plans
+              </td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" class="me-2" name="" id="">Cable reflectors function properly</td>
+              <td><input type="checkbox" class="me-2" name="" id="">Nayax and Cradlepoint devices installed</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" class="me-2" name="" id="">Cords positioned evenly on retractor to avoid
+                dragging</td>
+              <td><input type="checkbox" class="me-2" name="" id="">Charger Personality name labels affixed</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" class="me-2" name="" id="">Arc flash stickers on equipment</td>
+              <td><input type="checkbox" class="me-2" name="" id="">Charger ID #’s Affixed</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" class="me-2" name="" id="">“Coming Soon” signs on each dispenser (covering
+                screen) </td>
+              <td><input type="checkbox" class="me-2" name="" id="">Stamped plans and permit card delivered to EVgo PM
+              </td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" class="me-2" name="" id="">Chargers have been cleaned, surface marks removed
+              </td>
+              <td><input type="checkbox" class="me-2" name="" id="">Station decals in good condition</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" class="me-2" name="" id="">All charger doors open with full clearance</td>
+              <td><input type="checkbox" class="me-2" name="" id="">Keys in Switchgear door pocket or hook</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="color-tilt">Additional Comments:</p>
+        <p>Click or tap here to enter text.</p>
+        <br>
+        <br>
+        <table class="table table-bordered">
+          <tbody>
+            <tr>
+              <td>Project Manager</td>
+            </tr>
+            <tr>
+              <td class="py-3"></td>
+            </tr>
+          </tbody>
+        </table>
+        <br>
+        <table class="table table-bordered">
+          <tbody>
+            <tr>
+              <td class="w-50">Signature</td>
+              <td class="w-50">Date</td>
+            </tr>
+            <tr>
+              <td class="py-3"></td>
+              <td class="py-3"></td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </section>
+  <!-- all codes for ===***project-mgr-checklist***1=== ended -->
+</body>
+
+</html>

@@ -1,0 +1,101 @@
+/*=== base css start === */
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+}
+
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ol,
+ul,
+p,
+address,
+strong,
+i {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+/*===// end of base css === */
+/*=== components css start === */
+.page-one label {
+  font-size: 20px;
+  color: #1f4e79;
+}
+
+.page-one h1 {
+  color: #1f4e79;
+}
+
+.page-one h4 {
+  color: #1f4e79;
+}
+
+.page-one span {
+  color: #0196dd;
+  font-size: 20px;
+}
+
+.contents p,
+.contents a {
+  color: #0196dd;
+  padding-bottom: 5px;
+}
+
+.contents .sub-con p,
+.contents .sub-con a {
+  color: #000000;
+}
+
+.main-heading {
+  color: #0196dd;
+  border-bottom: 3px solid #0196dd;
+  margin-bottom: 10px;
+}
+
+.bg-blue {
+  background: #1f4e79;
+}
+
+.color-tilt {
+  color: #0196dd;
+}
+
+.image-wrapper p {
+  padding: 10px;
+  font-size: 16px;
+  color: #1f4e79;
+}
+
+.signature {
+  font-family: 'Courgette', cursive;
+  color: #1f4e79;
+  font-size: 25px;
+}
+
+/* ==// end of components css === */

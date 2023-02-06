@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "aws-sdk": "^2.1300.0",
-    "handlebars": "^4.7.7"
+    "handlebars": "^4.7.7",
+    "react-navigation": "^4.4.4"
   }
 }

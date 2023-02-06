@@ -1,17 +1,38 @@
 import { API, Storage } from 'aws-amplify';
 
 export const uploadPhotos = async (photos) => {
+    let dispenserCount = 1;
+    let powercabinetCount = 1;
     photos.forEach(async photo => {
         const fileName = `photos/${photo.fileName}.jpg`;
         const fetchedPhoto = await fetch(photo.uri);
         const photoBlob = await fetchedPhoto.blob();
 
-        const metadata = {
-            'dispenser': photo.dispenser.toString(),
-            'type': photo.type.toString(),
-            'dispenserNumber': photo.dispenserNumber.toString(),
-            'promptKey': photo.promptKey.toString()
-        };
+        let metadata;
+        if (photo.dispenser) {
+            metadata = {
+                'dispenser': photo.dispenser.toString(),
+                'type': photo.type.toString(),
+                'dispenserNumber': photo.dispenserNumber.toString(),
+                'overallDispenserNumber': count.toString(),
+                'promptKey': photo.promptKey.toString()
+            };
+            dispenserCount = dispenserCount + 1;
+        }
+        else if (photo.powercabinet){
+            metadata = {
+                'powercabinet': photo.powercabinet.toString(),
+                'cabinetNumber': photo.cabinetNumber.toString(),
+                'promptKey': photo.promptKey.toString()
+            };
+            powercabinetCount = powercabinetCount + 1;
+        }
+        else if (photo.constant) {
+            metadata = {
+                'constant': photo.constant.toString(),
+                'promptKey': photo.promptKey.toString()
+            };
+        }
 
         try {
             await Storage.put(fileName, photoBlob, {

@@ -1,9 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import { ScrollView, View, TouchableOpacity, Text } from 'react-native';
-import { prompts } from './prompts';
-import { Button, TextInput, Title } from 'react-native-paper';
+import { useNavigation } from '@react-navigation/native';
+import React, { useContext, useEffect, useState } from 'react';
+import { ScrollView } from 'react-native';
+import { Button } from 'react-native-paper';
+import { AllFormInputsContext } from '../../context/MyProviders';
+import FormInput from './FormInput';
 
-const FormPrompts = ({ setAllFormInputs }) => {
+const FormPrompts = ({ prompts, navigateTo }) => {
+    const { addFormInputs } = useContext(AllFormInputsContext);
+
+    const navigation = useNavigation();
     const initialInputs = prompts.reduce((acc, cur) => {
         acc[cur.key] = '';
         return acc;
@@ -26,19 +31,14 @@ const FormPrompts = ({ setAllFormInputs }) => {
     }, [inputs]);
 
     const handleContinue = () => {
-        setAllFormInputs(inputs)
+        addFormInputs(inputs)
+        navigation.navigate(navigateTo)
     };
 
     return (
         <ScrollView>
             {prompts.map((prompt, index) => (
-                <View key={index} style={{ padding: 20 }}>
-                    <Title>{prompt.prompt}</Title>
-                    <TextInput
-                        value={inputs[prompt.key]}
-                        onChangeText={(text) => handleChange(prompt.key, text)}
-                    />
-                </View>
+                <FormInput key={index} prompt={prompt} handleChange={handleChange} inputs={inputs} />
             ))}
             <Button
                 style={{ padding: 20 }}
@@ -46,8 +46,8 @@ const FormPrompts = ({ setAllFormInputs }) => {
                 onPress={handleContinue}>
                 Continue
             </Button>
-        </ScrollView >
+        </ScrollView>
     );
-};
+}
 
 export default FormPrompts;
