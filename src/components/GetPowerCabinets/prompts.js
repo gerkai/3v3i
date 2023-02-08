@@ -1,27 +1,27 @@
 const prompts = [
     {
         key: 'cabinetsoutside',
-        prompt: 'Power Cabinets - Details - Outside',
+        prompt: 'Outside',
         example: require('../../../assets/demophotos/image036.jpg')
     },
     {
         key: 'cabinetsinside',
-        prompt: 'Power Cabinets - Details - Inside',
+        prompt: 'Inside',
         example: require('../../../assets/demophotos/image037.jpg')
     },
     {
         key: 'cabinetsnameplate',
-        prompt: 'Power Cabinets - Details - Nameplate',
+        prompt: 'Nameplate',
         example: require('../../../assets/demophotos/image038.jpg')
     },
     {
         key: 'cabinetswireterminals',
-        prompt: 'Power Cabinets - Details - Wire Terminals',
+        prompt: 'Wire Terminals',
         example: require('../../../assets/demophotos/image039.jpg')
     },
     {
         key: 'cabinetswireterminaltorque',
-        prompt: 'Power Cabinets - Details - Wire Terminal Torque',
+        prompt: 'Wire Terminal Torque',
         example: require('../../../assets/demophotos/image040.jpg')
     }
 ];

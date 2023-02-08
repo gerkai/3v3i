@@ -1,10 +1,10 @@
 export const revisionHistoryPrompts = [
     {
         "key": "revision",
-        "prompt": "Enter Revision (A-Z)"
+        "prompt": "Revision (A-Z)"
     },
     {
         "key": "revisionnotes",
-        "prompt": "Initia/Mid project/Final"
+        "prompt": "Stage (Initial/Mid Project/Final)"
     }
 ];

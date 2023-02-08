@@ -1,47 +1,15 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import { Button, Text, Surface } from 'react-native-paper';
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    surface: {
-        padding: 8,
-        height: 300,
-        width: '80%',
-        alignItems: 'center',
-        justifyContent: 'center',
-        elevation: 4,
-    },
-    titleText: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        marginBottom: 8,
-    },
-    bodyText: {
-        fontSize: 18,
-        textAlign: 'center',
-        marginBottom: 24,
-    },
-    startButton: {
-        marginTop: 8,
-    }
-});
+import { View } from 'react-native';
+import { Button, Text } from 'react-native-paper';
 
 const LandingPage = () => {
     const navigation = useNavigation();
 
     return (
-        <View style={styles.container}>
-            <Surface style={styles.surface}>
-                <Text style={styles.titleText}>Welcome to the Document Generator App</Text>
-                <Text style={styles.bodyText}>This app will guide you through taking specific photos to generate a document</Text>
-                <Button mode="contained" style={styles.startButton} onPress={() => navigation.navigate('Title')}>Start</Button>
-            </Surface>
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+            <Text style={{ fontSize: 24, fontWeight: 'bold', marginBottom: 8 }}>Welcome to Punchlist Pro</Text>
+            <Button mode="contained" style={{ marginTop: 8 }} onPress={() => navigation.navigate('Title')}>Start</Button>
         </View>
     );
 };

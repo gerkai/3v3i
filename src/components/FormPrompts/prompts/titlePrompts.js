@@ -1,7 +1,8 @@
 export const titlePrompts = [
     {
         "key": "date",
-        "prompt": "Date"
+        "prompt": "Date",
+        "type": "date"
     },
     {
         "key": "companyname",

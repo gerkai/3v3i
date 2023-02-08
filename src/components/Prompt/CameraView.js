@@ -7,6 +7,7 @@ let cameraRef;
 
 const CameraView = ({ setPicture }) => {
     const [permission, requestPermission] = Camera.useCameraPermissions();
+    const [disabled, setDisabled] = useState(false);
 
     if (!permission)
         return <Text>Asking for camera permission</Text>;
@@ -18,8 +19,10 @@ const CameraView = ({ setPicture }) => {
 
     const takePicture = async () => {
         if (cameraRef) {
+            setDisabled(true);
             let photo = await cameraRef.takePictureAsync({ base64: true });
             setPicture(photo);
+            setDisabled(false);
         }
     }
 
@@ -29,7 +32,7 @@ const CameraView = ({ setPicture }) => {
                 <Camera style={{ width: '90%', height: '90%' }} type={CameraType.back} ref={(ref) => { cameraRef = ref }} ratio="1:1" >
                     <View style={{ flex: 1, backgroundColor: 'transparent' }} />
                     <View style={{ margin: 10 }}>
-                        <Button mode="contained" onPress={() => takePicture()}>
+                        <Button mode="contained" disabled={disabled} onPress={() => takePicture()}>
                             Take Picture
                         </Button>
                     </View>

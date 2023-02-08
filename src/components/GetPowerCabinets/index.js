@@ -1,9 +1,11 @@
 import React, { useContext, useState } from 'react';
-import { View, StyleSheet, Button, Alert, Text } from 'react-native';
+import { View, Text } from 'react-native';
 import prompts from './prompts';
 import PowerCabinetPhotoPrompts from './PowerCabinetPhotoPrompts';
 import { PhotosContext } from '../../context/MyProviders';
 import { useNavigation } from '@react-navigation/native';
+import { Button } from 'react-native-paper';
+
 
 const GetPowerCabinets = ({ navigateTo }) => {
     const { addPhoto } = useContext(PhotosContext);
@@ -17,12 +19,18 @@ const GetPowerCabinets = ({ navigateTo }) => {
     }
 
     return (
-        <View style={styles.container}>
+        <View style={{ flex: 1, justifyContent: 'center', width: '100%' }}>
             {currentCabinetComplete ? (
-                <View>
+                <View style={{ alignItems: 'center', justifyContent: 'center', padding: 20 }}>
                     <Text>Add a Power Cabinet?</Text>
-                    <Button title={"Yes"} onPress={handleAddAnother} />
-                    <Button title={"No"} onPress={() => navigation.navigate(navigateTo)} />
+                    <View style={{ flexDirection: 'row', marginTop: 20, alignItems: 'center', justifyContent: 'center' }}>
+                        <Button mode="contained" style={{ marginRight: 10 }} onPress={handleAddAnother}>
+                            Yes
+                        </Button>
+                        <Button mode="contained" onPress={() => navigation.navigate(navigateTo)}>
+                            No
+                        </Button>
+                    </View>
                 </View>
             ) : (
                 <PowerCabinetPhotoPrompts cabinetNumber={counter} prompts={prompts} addPhoto={addPhoto} setComplete={setCurrentCabinetComplete} />
@@ -30,13 +38,5 @@ const GetPowerCabinets = ({ navigateTo }) => {
         </View>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-});
 
 export default GetPowerCabinets;

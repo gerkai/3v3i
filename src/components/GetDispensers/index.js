@@ -1,9 +1,10 @@
 import { useNavigation } from '@react-navigation/native';
 import React, { useState, useContext } from 'react';
-import { View, StyleSheet, Button, Alert, Text } from 'react-native';
+import { View, Text } from 'react-native';
 import { PhotosContext } from '../../context/MyProviders';
 import DispenserPhotoPrompts from './DispenserPhotoPrompts';
 import { promptsD, prompts1D } from './prompts';
+import { Button } from 'react-native-paper';
 
 const GetDispensers = ({ type, navigateTo }) => {
     const { addPhoto } = useContext(PhotosContext);
@@ -21,26 +22,25 @@ const GetDispensers = ({ type, navigateTo }) => {
     }
 
     return (
-        <View style={styles.container}>
+        <View style={{flex: 1, justifyContent: 'center', width: '100%'}}>
             {currentDispenserComplete ? (
-                <View>
+                <View style={{ alignItems: 'center', justifyContent: 'center', padding: 20 }}>
                     <Text>Add a Type {type} Dispenser?</Text>
-                    <Button title={"Yes"} onPress={handleAddAnother} />
-                    <Button title={"No"} onPress={() => navigation.navigate(navigateTo)} />
+                    <View style={{ flexDirection: 'row', marginTop: 20, alignItems: 'center', justifyContent: 'center' }}>
+                        <Button mode="contained" style={{ marginRight: 10 }} onPress={handleAddAnother}>
+                            Yes
+                        </Button>
+                        <Button mode="contained" onPress={() => navigation.navigate(navigateTo)}>
+                            No
+                        </Button>
+                    </View>
                 </View>
             ) : (
                 <DispenserPhotoPrompts type={type} dispenserNumber={counter} prompts={prompts} addPhoto={addPhoto} setComplete={setCurrentDispenserComplete} />
             )}
         </View>
     );
-}
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-});
+}
 
 export default GetDispensers;

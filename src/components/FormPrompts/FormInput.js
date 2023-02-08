@@ -1,36 +1,17 @@
 import React from 'react';
-import { View, TouchableOpacity, Text } from 'react-native';
-import { Checkbox, RadioButton, TextInput, Title } from 'react-native-paper';
+import { View } from 'react-native';
+import { TextInput, Title } from 'react-native-paper';
+import RadioPrompt from './RadioPrompt';
+import CheckboxPrompt from './CheckboxPrompt';
+import DatePrompt from './DatePrompt';
 
 const FormInput = ({ prompt, handleChange, inputs }) => {
     if (prompt.type === 'radio') {
-        return (
-            <View style={{ padding: 20 }}>
-                <Title>{prompt.prompt}</Title>
-                {prompt.options.map((option, optionIndex) => (
-                    <View key={optionIndex} style={{ flexDirection: 'row', alignItems: 'center' }}>
-                        <RadioButton
-                            value={option}
-                            status={inputs[prompt.key] === option ? 'checked' : 'unchecked'}
-                            onPress={() => handleChange(prompt.key, option)}
-                        />
-                        <TouchableOpacity onPress={() => handleChange(prompt.key, option)}>
-                            <Text>{option}</Text>
-                        </TouchableOpacity>
-                    </View>
-                ))}
-            </View>
-        );
+        return <RadioPrompt prompt={prompt} handleChange={handleChange} inputs={inputs} />;
     } else if (prompt.type === 'checkbox') {
-        return (
-            <View style={{ padding: 20 }}>
-                <Title>{prompt.prompt}</Title>
-                <Checkbox
-                    status={inputs[prompt.key] ? 'checked' : 'unchecked'}
-                    onPress={() => handleChange(prompt.key, !inputs[prompt.key])}
-                />
-            </View>
-        );
+        return <CheckboxPrompt prompt={prompt} handleChange={handleChange} inputs={inputs} />;
+    } else if (prompt.type === 'date') {
+        return <DatePrompt prompt={prompt} handleChange={handleChange} inputs={inputs} />;
     }
     return (
         <View style={{ padding: 20 }}>

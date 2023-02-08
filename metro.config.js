@@ -1,15 +1,8 @@
-const exclusionList = require('metro-config/src/defaults/exclusionList');
+const { getDefaultConfig } = require('expo/metro-config');
 
-module.exports = {
-    resolver: {
-        blacklistRE: exclusionList([/amplify\/#current-cloud-backend\/.*/]),
-    },
-    transformer: {
-        getTransformOptions: async () => ({
-            transform: {
-                experimentalImportSupport: false,
-                inlineRequires: false,
-            },
-        }),
-    },
-};
+const defaultConfig = getDefaultConfig(__dirname);
+
+defaultConfig.resolver.assetExts.push('db');
+defaultConfig.resolver.blockList = [/amplify\/#current-cloud-backend\/.*/];
+
+module.exports = defaultConfig;

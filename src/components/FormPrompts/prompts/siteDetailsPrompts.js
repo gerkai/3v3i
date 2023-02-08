@@ -1,11 +1,11 @@
 export const siteDetailsPrompts = [
     {
         "key": "utilitycompanyname",
-        "prompt": "Enter Utility Company Name"
+        "prompt": "Utility Company Name"
     },
     {
         "key": "meternumber",
-        "prompt": "Enter Meter Number"
+        "prompt": "Meter Number"
     },
     {
         "key": "transformernumber",
