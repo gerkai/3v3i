@@ -39,7 +39,7 @@ export default function App() {
           <Authenticator>
             <MyProviders>
               <Stack.Navigator>
-                {/* <Stack.Screen name="LandingPage" component={LandingPage} options={{ title: 'Welcome' }} />
+                <Stack.Screen name="LandingPage" component={LandingPage} options={{ title: 'Welcome' }} />
                 <Stack.Screen name="Title" component={Title} />
                 <Stack.Screen name="RevisionHistory" component={RevisionHistory} options={{ title: 'Revision History' }} />
                 <Stack.Screen name="SiteDetails" component={SiteDetails} options={{ title: 'Site Details' }} />
@@ -47,7 +47,7 @@ export default function App() {
                 <Stack.Screen name="AdditionalDocuments" component={AdditionalDocuments} options={{ title: 'Additional Documents' }} />
                 <Stack.Screen name="HighPoweredMultiSystemData" component={HighPoweredMultiSystemData} options={{ title: 'High Powered Multi-System Data' }} />
                 <Stack.Screen name="StandaloneChargingSystemData" component={StandaloneChargingSystemData} options={{ title: 'Standalone Charging System Data' }} />
-                <Stack.Screen name="SitePhotos" component={SitePhotos} options={{ title: 'Site Photos' }} /> */}
+                <Stack.Screen name="SitePhotos" component={SitePhotos} options={{ title: 'Site Photos' }} />
                 <Stack.Screen name="EquipmentPad" component={EquipmentPad} options={{ title: 'Equipment Pad' }} />
                 <Stack.Screen name="TypeDDispensers" component={TypeDDispensers} options={{ title: 'Type D Dispensers' }} />
                 <Stack.Screen name="Type1DDispensers" component={Type1DDispensers} options={{ title: 'Type 1D Dispensers' }} />
