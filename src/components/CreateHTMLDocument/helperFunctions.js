@@ -14,7 +14,7 @@ export const uploadPhotos = async (photos) => {
                 'dispenser': photo.dispenser.toString(),
                 'type': photo.type.toString(),
                 'dispenserNumber': photo.dispenserNumber.toString(),
-                'overallDispenserNumber': count.toString(),
+                'overallDispenserNumber': dispenserCount.toString(),
                 'promptKey': photo.promptKey.toString()
             };
             dispenserCount = dispenserCount + 1;
@@ -23,6 +23,7 @@ export const uploadPhotos = async (photos) => {
             metadata = {
                 'powercabinet': photo.powercabinet.toString(),
                 'cabinetNumber': photo.cabinetNumber.toString(),
+                'overallCabinetNumber': powercabinetCount.toString(),
                 'promptKey': photo.promptKey.toString()
             };
             powercabinetCount = powercabinetCount + 1;
