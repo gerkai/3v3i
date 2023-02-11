@@ -1,28 +1,26 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, TouchableOpacity } from 'react-native';
 import { Button, Text, Title } from 'react-native-paper';
-import { DatePickerModal } from 'react-native-paper-dates';
+import DateTimePicker from '@react-native-community/datetimepicker';
 import moment from "moment";
 
 const DatePrompt = ({ prompt, handleChange, inputs }) => {
-    const [showDatePicker, setShowDatePicker] = useState(false);
-    const date = inputs[prompt.key] ? new Date(inputs[prompt.key].date) : new Date();
+    const date = inputs[prompt.key] ? new Date(inputs[prompt.key]) : new Date();
+
+    useEffect(() => {
+        handleChange(prompt.key, date.toDateString())
+    }, [prompt.key])
 
     return (
-        <View style={{ padding: 20 }}>
+        <View style={{ padding: 20, marginRight: 'auto' }}>
             <Title>{prompt.prompt}</Title>
-            <TouchableOpacity onPress={() => setShowDatePicker(true)}>
-                <Text>{moment(date).format("MMMM Do YYYY")}</Text>
-            </TouchableOpacity>
-            <DatePickerModal
-                //locale="de"
-                mode="single"
-                visible={showDatePicker}
-                onDismiss={() => setShowDatePicker(false)}
-                date={date}
-                onConfirm={(date) => {
-                    handleChange(prompt.key, date);
-                    setShowDatePicker(false);
+            <DateTimePicker
+                testID="dateTimePicker"
+                value={date}
+                mode='date'
+                is24Hour={false}
+                onChange={(event, selectedDate) => {
+                    handleChange(prompt.key, selectedDate.toDateString());
                 }}
             />
         </View>

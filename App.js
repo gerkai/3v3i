@@ -11,6 +11,7 @@ import AdditionalTasks from './src/screens/AdditionalTasks';
 import AdditionalDocuments from './src/screens/AdditionalDocuments';
 import HighPoweredMultiSystemData from './src/screens/HighPoweredMultiSystemData';
 import StandaloneChargingSystemData from './src/screens/StandaoneChargingSystemDataPrompts';
+import InspectionPhotos from './src/screens/InspectionPhotos';
 import SitePhotos from './src/screens/SitePhotos';
 import EquipmentPad from './src/screens/EquipmentPad';
 import TypeDDispensers from './src/screens/TypeDDispensers';
@@ -47,6 +48,7 @@ export default function App() {
                 <Stack.Screen name="AdditionalDocuments" component={AdditionalDocuments} options={{ title: 'Additional Documents' }} />
                 <Stack.Screen name="HighPoweredMultiSystemData" component={HighPoweredMultiSystemData} options={{ title: 'High Powered Multi-System Data' }} />
                 <Stack.Screen name="StandaloneChargingSystemData" component={StandaloneChargingSystemData} options={{ title: 'Standalone Charging System Data' }} />
+                <Stack.Screen name="InspectionPhotos" component={InspectionPhotos} options={{ title: 'Inspection Photos' }} />
                 <Stack.Screen name="SitePhotos" component={SitePhotos} options={{ title: 'Site Photos' }} />
                 <Stack.Screen name="EquipmentPad" component={EquipmentPad} options={{ title: 'Equipment Pad' }} />
                 <Stack.Screen name="TypeDDispensers" component={TypeDDispensers} options={{ title: 'Type D Dispensers' }} />

@@ -165,10 +165,6 @@ export const highPoweredMultiSystemDataPrompts = [
         "prompt": "Dispenser 1 L1 to Ground"
     },
     {
-        "key": "dispenserl2toground1",
-        "prompt": "Dispenser 1 L2 to Ground"
-    },
-    {
         "key": "dispenserl1toneutral1",
         "prompt": "Dispenser 1 L1 to Neutral"
     },
@@ -176,10 +172,6 @@ export const highPoweredMultiSystemDataPrompts = [
     {
         "key": "dispenserl1toground2",
         "prompt": "Dispenser 2 L1 to Ground"
-    },
-    {
-        "key": "dispenserl2toground2",
-        "prompt": "Dispenser 2 L2 to Ground"
     },
     {
         "key": "dispenserl1toneutral2",

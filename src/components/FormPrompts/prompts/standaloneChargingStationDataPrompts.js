@@ -1,5 +1,9 @@
 export const standaloneChargingStationDataPrompts = [
     {
+        "key": "standalonedispensername1",
+        "prompt": "Dispenser 1 Name"
+    },
+    {
         "key": "standalonemanufacturer1",
         "prompt": "Dispenser 1 Manufacturer"
     },

@@ -249,7 +249,7 @@
           </thead>
           <tbody>
             <tr>
-              <td>{{formData.utilitycompanyname}}</td>
+              <td>{{formData.generalcontractorofrecord}}</td>
             </tr>
           </tbody>
         </table>
@@ -583,7 +583,7 @@
           </thead>
           <tbody>
             <tr>
-              <td>{{formData.companyName}}</td>
+              <td>{{formData.generalcontractorofrecord}}</td>
               <td>General Contractor</td>
             </tr>
             <tr>
@@ -710,7 +710,7 @@
             <tr>
               <td>{{formData.dispensername1}}</td>
               <td>{{formData.dispenserconnectedcabinetid1}}</td>
-              <td>{{formData.dispenserperonalityname1}}</td>
+              <td>{{formData.dispenserpersonalityname1}}</td>
               <td>{{formData.dispenserpartnumber1}}</td>
               <td>{{formData.dispenserserialnumber1}}</td>
               <td>{{formData.dispensercradlepointip1}}</td>
@@ -796,7 +796,7 @@
             <tr>
               <td>1D1</td>
               <td>{{formData.dispenserl1toground1}}</td>
-              <td>{{formData.dispenserl2toground1}}</td>
+              <td>{{formData.dispenserl1toneutral1}}</td>
             </tr>
             <tr>
               <!-- <td>1D2</td>
@@ -830,12 +830,12 @@
             <tr>
               <td>SWGR</td>
               <td>{{formData.dispenserName1}}</td>
-              <td>{{formData.dispenserl1toground1}}</td>
-              <td>{{formData.dispenserl2toground1}}</td>
-              <td>{{formData.dispenserl3toground1}}</td>
-              <td>{{formData.dispenserl1tol21}}</td>
-              <td>{{formData.dispenserl2tol31}}</td>
-              <td>{{formData.dispenserl1tol31}}</td>
+              <td>{{formData.switchgearl1toground1}}</td>
+              <td>{{formData.switchgearl2toground1}}</td>
+              <td>{{formData.switchgearl3toground1}}</td>
+              <td>{{formData.switchgearl1tol21}}</td>
+              <td>{{formData.switchgearl2tol31}}</td>
+              <td>{{formData.switchgearl1tol31}}</td>
             </tr>
           </tbody>
         </table>
@@ -1024,46 +1024,40 @@
             <tr>
               <td rowspan="2">Building Final Inspection</td>
               <td></td>
-              <td>Passed</td>
-              <td>11/9/2022</td>
-              <td>11/9/2022</td>
-              <td>11/9/2022</td>
+              <td>{{formData.buildinginspectionoutcome}}</td>
+              <td>{{formData.buildinginspectionrequested}}</td>
+              <td>{{formData.buildinginspectionscheduled}}</td>
+              <td>{{formData.buildinginspectioninspected}}</td>
             </tr>
             <tr>
               <td>Inspector:
                 <br>
                 Comments:
               </td>
-              <td colspan="4">John Cassidy ((678) 493-6234) <a href="mailto:abc@mail.com">Send mail</a>
-                <br> <span>&#60;&#60;</span>Projected time for inspector arrival is between 8AM and 11:3PM on Wednesday,
-                November 9, 2022 <span>&#62;&#62;</span>
-              </td>
+              <td colspan="4">{{formData.buildinginspectioncomments}}</td>
             </tr>
           </tbody>
           <tbody>
             <tr>
               <td rowspan="2">Electrical Final Inspection</td>
               <td></td>
-              <td>Passed</td>
-              <td>11/9/2022</td>
-              <td>11/9/2022</td>
-              <td>11/9/2022</td>
+              <td>{{formData.electricalinspectionoutcome}}</td>
+              <td>{{formData.electricalinspectionrequested}}</td>
+              <td>{{formData.electricalinspectionscheduled}}</td>
+              <td>{{formData.electricalinspectioninspected}}</td>
             </tr>
             <tr>
               <td>Inspector:
                 <br>
                 Comments:
               </td>
-              <td colspan="4">John Cassidy ((678) 493-6234) <a href="mailto:abc@mail.com">Send mail</a>
-                <br> <span>&#60;&#60;</span>Projected time for inspector arrival is between 8AM and 11:3PM on Wednesday,
-                November 9, 2022 <span>&#62;&#62;</span>
-              </td>
+              <td colspan="4">{{formData.electricalinspectioncomments}}</td>
             </tr>
           </tbody>
         </table>
       </div>
 
-      <div class="p-3">
+      <!-- <div class="p-3">
         <h5 class="pb-2">10.2 Final Electrical Inspection</h5>
 
         <table class="table table-bordered">
@@ -1118,7 +1112,7 @@
             </tr>
           </tbody>
         </table>
-      </div>
+      </div> -->
 
       <hr class="my-5">
     </div>

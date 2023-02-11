@@ -19,5 +19,9 @@ export const titlePrompts = [
     {
         "key": "siteaddress",
         "prompt": "Site Address"
+    },
+    {
+        "key": "generalcontractorofrecord",
+        "prompt": "General Contractor of Record"
     }
 ];

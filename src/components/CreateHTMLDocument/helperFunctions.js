@@ -3,7 +3,7 @@ import { API, Storage } from 'aws-amplify';
 export const uploadPhotos = async (photos) => {
     let dispenserCount = 1;
     let powercabinetCount = 1;
-    photos.forEach(async photo => {
+    const uploads = photos.map(async photo => {
         const fileName = `photos/${photo.fileName}.jpg`;
         const fetchedPhoto = await fetch(photo.uri);
         const photoBlob = await fetchedPhoto.blob();
@@ -19,7 +19,7 @@ export const uploadPhotos = async (photos) => {
             };
             dispenserCount = dispenserCount + 1;
         }
-        else if (photo.powercabinet){
+        else if (photo.powercabinet) {
             metadata = {
                 'powercabinet': photo.powercabinet.toString(),
                 'cabinetNumber': photo.cabinetNumber.toString(),
@@ -40,11 +40,15 @@ export const uploadPhotos = async (photos) => {
                 contentType: "image/jpg",
                 metadata: metadata
             });
+            console.log("uploaded: " + photo.fileName)
         } catch (error) {
             console.log("Error uploading file: ", error);
         }
     });
+
+    await Promise.all(uploads);
 };
+
 
 export const uploadFormInputs = async (allFormInputs) => {
     const fileName = `forminputs.json`;
