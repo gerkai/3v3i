@@ -20,8 +20,6 @@ const FormPrompts = ({ prompts, navigateTo }) => {
         setInputs({ ...inputs, [key]: value });
     };
 
-    console.log(inputs)
-
     const checkIfAllInputsAreFilled = () => {
         const values = Object.values(inputs);
         const isAllInputsFilled = values.every(value => value !== undefined && value !== '');
@@ -34,7 +32,6 @@ const FormPrompts = ({ prompts, navigateTo }) => {
     }, [inputs]);
 
     const handleContinue = () => {
-        console.log(inputs)
         addFormInputs(inputs)
         navigation.navigate(navigateTo)
     };

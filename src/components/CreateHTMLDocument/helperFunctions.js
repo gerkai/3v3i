@@ -1,9 +1,29 @@
 import { API, Storage } from 'aws-amplify';
 
-export const uploadPhotos = async (photos) => {
+export const createHTMLDocument = async (allFormInputs, photos, onProgress) => {
+    const numSteps = 3;
+    let progress = 0;
+
+    await uploadFormInputs(allFormInputs);
+    progress += 1 / numSteps;
+    onProgress(progress);
+
+    await uploadPhotos(photos, (photoProgress) => {
+        progress += photoProgress / numSteps;
+        onProgress(progress);
+    });
+
+    const url = await createDocument();
+    progress += 1 / numSteps;
+    onProgress(progress);
+
+    return url;
+};
+
+const uploadPhotos = async (photos, onProgress) => {
     let dispenserCount = 1;
     let powercabinetCount = 1;
-    const uploads = photos.map(async photo => {
+    const uploads = photos.map(async (photo, index) => {
         const fileName = `photos/${photo.fileName}.jpg`;
         const fetchedPhoto = await fetch(photo.uri);
         const photoBlob = await fetchedPhoto.blob();
@@ -36,12 +56,13 @@ export const uploadPhotos = async (photos) => {
         }
 
         try {
-            await Storage.put(fileName, photoBlob, {
+            const response = await Storage.put(fileName, photoBlob, {
                 level: "private",
                 contentType: "image/jpg",
                 metadata: metadata
             });
-            console.log("uploaded: " + photo.fileName)
+            const progress = 1 / photos.length;
+            onProgress(progress);
         } catch (error) {
             console.log("Error uploading file: ", error);
         }
@@ -51,7 +72,7 @@ export const uploadPhotos = async (photos) => {
 };
 
 
-export const uploadFormInputs = async (allFormInputs) => {
+const uploadFormInputs = async (allFormInputs) => {
     const fileName = `forminputs.json`;
     const fileContent = JSON.stringify(allFormInputs);
     const fileBlob = new Blob([fileContent], { type: "application/json" });
@@ -66,7 +87,7 @@ export const uploadFormInputs = async (allFormInputs) => {
     }
 };
 
-export const createDocument = async () => {
+const createDocument = async () => {
     const apiName = 'charger';
     const path = '/documentdata';
     const myInit = {};
