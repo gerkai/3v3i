@@ -7,8 +7,8 @@ const handlebars = require('handlebars');
  */
 module.exports.handler = async (event) => {
     try {
-        //const cognitoIdentity = 'us-east-1:c6544d19-0084-45c1-9cec-84e080c67988';
-        const cognitoIdentity = event.requestContext.identity.cognitoIdentityId;
+        const cognitoIdentity = 'us-east-1:c6544d19-0084-45c1-9cec-84e080c67988';
+        //const cognitoIdentity = event.requestContext.identity.cognitoIdentityId;
         const photos = await getPhotosFromS3(cognitoIdentity);
         const formData = await getFormData(cognitoIdentity);
         const style = await getStyle();

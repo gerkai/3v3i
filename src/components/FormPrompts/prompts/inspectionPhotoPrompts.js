@@ -15,12 +15,12 @@ export const inspectionPhotoPrompts = [
     },
     {
         "key": "buildinginspectioninspected",
-        "prompt": "Building Inspection Inspected Date",
+        "prompt": "Building Inspection Passed Date",
         "type": "date"
     },
     {
         "key": "buildinginspectioncomments",
-        "prompt": "Building Inspection Outcome"
+        "prompt": "Building Inspector Comments"
     },
 
     {
@@ -44,6 +44,6 @@ export const inspectionPhotoPrompts = [
     },
     {
         "key": "electricalinspectioncomments",
-        "prompt": "Electrical Inspection Outcome"
+        "prompt": "Electrical Inspection Comments"
     },
 ];
