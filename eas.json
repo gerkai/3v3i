@@ -1,7 +1,8 @@
 {
   "cli": {
     "version": ">= 3.4.1",
-    "promptToConfigurePushNotifications": false
+    "promptToConfigurePushNotifications": false,
+    "appVersionSource": "remote"
   },
   "build": {
     "development": {
@@ -24,6 +25,12 @@
     }
   },
   "submit": {
-    "production": {}
+    "production": {
+      "ios": {
+        "appleId": "connor.mcelroy@outlook.com",
+        "ascAppId": "1672211587",
+        "appleTeamId": "18216797006"
+      }
+    }
   }
 }

@@ -24,6 +24,9 @@ import CreateHTMLDocument from './src/components/CreateHTMLDocument';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import MyProviders from './src/context/MyProviders';
+import LogoUploaderScreen from './src/screens/LogoUploaderScreen';
+import { Auth } from 'aws-amplify';
+
 
 const theme = {};
 
@@ -33,6 +36,8 @@ const Stack = createStackNavigator();
 
 export default function App() {
 
+  //Auth.signOut();
+
   return (
     <NavigationContainer>
       <PaperProvider theme={theme}>
@@ -41,6 +46,7 @@ export default function App() {
             <MyProviders>
               <Stack.Navigator>
                 <Stack.Screen name="LandingPage" component={LandingPage} options={{ title: 'Welcome' }} />
+                <Stack.Screen name="LogoUploader" component={LogoUploaderScreen} options={{ title: 'Logo Uploader' }} />
                 <Stack.Screen name="Title" component={Title} />
                 <Stack.Screen name="RevisionHistory" component={RevisionHistory} options={{ title: 'Revision History' }} />
                 <Stack.Screen name="SiteDetails" component={SiteDetails} options={{ title: 'Site Details' }} />

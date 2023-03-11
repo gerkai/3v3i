@@ -2,7 +2,7 @@
   "expo": {
     "name": "Punchlist Pro",
     "slug": "charger-app",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/logo.jpg",
     "userInterfaceStyle": "light",
@@ -22,7 +22,7 @@
       "infoPlist": {
         "NSCameraUsageDescription": "This app uses the camera to take pictures of EV chargers."
       },
-      "bundleIdentifier": "com.3v3i.punchlistpro"
+      "bundleIdentifier": "com.3v3i.app"
     },
     "android": {
       "adaptiveIcon": {
