@@ -25,7 +25,7 @@ const GetDispensers = ({ type, navigateTo }) => {
         <View style={{flex: 1, justifyContent: 'center', width: '100%'}}>
             {currentDispenserComplete ? (
                 <View style={{ alignItems: 'center', justifyContent: 'center', padding: 20 }}>
-                    {type === 'D' ? <Text>Add D type all-in-one dispenser?</Text> : <Text>Add 1D type stand alone dispenser</Text> }
+                    {type === 'D' ? <Text>Add Type D Dispenser? (All In One Dispenser)</Text> : <Text>Add Type 1D Dispenser? (Dispenser With a Separate Power Cabinet)</Text> }
                     <View style={{ flexDirection: 'row', marginTop: 20, alignItems: 'center', justifyContent: 'center' }}>
                         <Button mode="contained" style={{ marginRight: 10 }} onPress={handleAddAnother}>
                             Yes

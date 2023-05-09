@@ -46,7 +46,7 @@ export default function App() {
             <MyProviders>
               <Stack.Navigator>
                 <Stack.Screen name="LandingPage" component={LandingPage} options={{ title: 'Welcome' }} />
-                <Stack.Screen name="LogoUploader" component={LogoUploaderScreen} options={{ title: 'Logo Uploader' }} />
+                {/* <Stack.Screen name="LogoUploader" component={LogoUploaderScreen} options={{ title: 'Logo Uploader' }} /> */}
                 <Stack.Screen name="Title" component={Title} />
                 <Stack.Screen name="RevisionHistory" component={RevisionHistory} options={{ title: 'Revision History' }} />
                 <Stack.Screen name="SiteDetails" component={SiteDetails} options={{ title: 'Site Details' }} />

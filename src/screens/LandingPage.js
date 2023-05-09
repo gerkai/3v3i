@@ -9,7 +9,7 @@ const LandingPage = () => {
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
             <Text style={{ fontSize: 24, fontWeight: 'bold', marginBottom: 8 }}>Welcome to Punchlist Pro</Text>
-            <Button mode="contained" style={{ marginTop: 8 }} onPress={() => navigation.navigate('LogoUploader')}>Start</Button>
+            <Button mode="contained" style={{ marginTop: 8 }} onPress={() => navigation.navigate('Title')}>Start</Button>
         </View>
     );
 };

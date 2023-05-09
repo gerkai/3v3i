@@ -21,6 +21,8 @@ export const createHTMLDocument = async (allFormInputs, photos, onProgress) => {
 };
 
 const uploadPhotos = async (photos, onProgress) => {
+    await Storage.remove('photos/', { level: 'private' });
+
     let dispenserCount = 1;
     let powercabinetCount = 1;
     const uploads = photos.map(async (photo, index) => {
@@ -70,7 +72,6 @@ const uploadPhotos = async (photos, onProgress) => {
 
     await Promise.all(uploads);
 };
-
 
 const uploadFormInputs = async (allFormInputs) => {
     const fileName = `forminputs.json`;

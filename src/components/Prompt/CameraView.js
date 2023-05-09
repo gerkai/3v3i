@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { Camera, CameraType } from 'expo-camera';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { Button, Caption, Surface } from 'react-native-paper';
+import { Text, View } from 'react-native';
+import { Button } from 'react-native-paper';
+import { manipulateAsync } from 'expo-image-manipulator';
+
 
 let cameraRef;
 
 const CameraView = ({ setPicture }) => {
-    const [permission, requestPermission] = Camera.useCameraPermissions();
+    const [permission] = Camera.useCameraPermissions();
     const [disabled, setDisabled] = useState(false);
 
     if (!permission)
@@ -21,7 +23,12 @@ const CameraView = ({ setPicture }) => {
         if (cameraRef) {
             setDisabled(true);
             let photo = await cameraRef.takePictureAsync({ base64: true });
-            setPicture(photo);
+            const compressedPhoto = await manipulateAsync(
+                photo.localUri || photo.uri,
+                [],
+                { compress: 0.5 }
+            );
+            setPicture(compressedPhoto);
             setDisabled(false);
         }
     }
