@@ -64,6 +64,8 @@ export default function App() {
                 <Stack.Screen name="TransformerMeter" component={TransformerMeter} options={{ title: 'Transformer + Meter' }} />
                 <Stack.Screen name="KeyLocation" component={KeyLocation} options={{ title: 'Key Location' }} />
                 <Stack.Screen name="CreateHTMLDocument" component={CreateHTMLDocument} options={{ title: 'Create Document' }} />
+              
+              
               </Stack.Navigator>
             </MyProviders>
           </Authenticator>
