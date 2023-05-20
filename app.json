@@ -2,7 +2,6 @@
   "expo": {
     "name": "Punchlist Pro",
     "slug": "charger-app",
-    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/logo.jpg",
     "userInterfaceStyle": "light",
