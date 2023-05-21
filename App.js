@@ -46,7 +46,6 @@ export default function App() {
             <MyProviders>
               <Stack.Navigator>
                 <Stack.Screen name="LandingPage" component={LandingPage} options={{ title: 'Welcome' }} />
-                {/* <Stack.Screen name="LogoUploader" component={LogoUploaderScreen} options={{ title: 'Logo Uploader' }} /> */}
                 <Stack.Screen name="Title" component={Title} />
                 <Stack.Screen name="RevisionHistory" component={RevisionHistory} options={{ title: 'Revision History' }} />
                 <Stack.Screen name="SiteDetails" component={SiteDetails} options={{ title: 'Site Details' }} />
@@ -64,8 +63,6 @@ export default function App() {
                 <Stack.Screen name="TransformerMeter" component={TransformerMeter} options={{ title: 'Transformer + Meter' }} />
                 <Stack.Screen name="KeyLocation" component={KeyLocation} options={{ title: 'Key Location' }} />
                 <Stack.Screen name="CreateHTMLDocument" component={CreateHTMLDocument} options={{ title: 'Create Document' }} />
-              
-              
               </Stack.Navigator>
             </MyProviders>
           </Authenticator>
