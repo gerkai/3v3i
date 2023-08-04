@@ -45,7 +45,6 @@ const CreateDailyLogView = ({ route }) => {
 
                 updatedSite.DailyLogs.push(dailyLog);
 
-                console.log(updatedSite);
 
                 StorageService.storeData(updatedSite.id, updatedSite).finally(() => {
                     navigation.navigate('SiteDetailsView', { siteId: updatedSite.id });

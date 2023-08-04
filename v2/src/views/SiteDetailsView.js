@@ -20,8 +20,7 @@ const styles = StyleSheet.create({
 const SiteDetailsView = ({ route }) => {
 
     const [site, setSite] = React.useState(null);
-    const [showSiteFeasibilityReport, setShowSiteFeasibilityReport] = React.useState(false);
-    const [showDailyLogs, setShowDailyLogs] = React.useState(false);
+    const [siteProgress, setSiteProgress] = React.useState('');
     const navigation = useNavigation();
 
     React.useEffect(() => {
@@ -34,21 +33,22 @@ const SiteDetailsView = ({ route }) => {
             StorageService.retrieveData(siteId).then(data => {
                 setSite(data);
 
-                if(data?.SiteFeasibilityReport !== undefined){
-                    setShowSiteFeasibilityReport(false);
-                } else {
-                    setShowSiteFeasibilityReport(true);
-                } 
-    
-                if(data?.DailyLogs !== undefined){
-                    setShowDailyLogs(true);
-                } else {
-                    setShowDailyLogs(false);
+                if (data?.SiteFeasibilityReport === undefined) {
+                    setSiteProgress('not-started');
                 }
+
+                if (data?.SiteFeasibilityReport !== undefined && data?.FinalReport === undefined) {
+                    setSiteProgress('in-progress');
+                }
+
+                if (data?.SiteFeasibilityReport !== undefined && data?.FinalReport !== undefined) {
+                    setSiteProgress('complete');
+                }
+
             });
 
             return () => {
-                
+
             };
         }, [route.params])
     );
@@ -59,32 +59,32 @@ const SiteDetailsView = ({ route }) => {
             <Text style={styles.text}>{site?.address}</Text>
             <Text style={styles.text}>{site?.attendeeFirstName} {site?.attendeeLastName}</Text>
             <Text style={styles.text}>{site?.date}</Text>
-            <Text style={styles.text}>Status: {site?.SiteFeasibilityReport === undefined ? 'Not Started' : 'In Progress'}</Text>
-            {showSiteFeasibilityReport &&
+            <Text style={styles.text}>Status: {site?.SiteFeasibilityReport === undefined ? 'Not Started' : (site?.FinalReport === undefined ? 'In Progress' : 'Complete')}</Text>
+            {(siteProgress === 'not-started') &&
                 (<Button mode="contained" onPress={() => {
                     navigation.navigate('CreateSiteFeasibilityReportView', { siteId: site?.id });
                 }}>
                     Create Site Feasibility Report
                 </Button>)
             }
-             { !showSiteFeasibilityReport &&
+            {(siteProgress === 'in-progress') &&
                 (<Button mode="contained" onPress={() => {
                     navigation.navigate('CreateDailyLogView', { siteId: site?.id });
                 }}>
                     Create Daily Log
                 </Button>)
             }
-            { !showSiteFeasibilityReport &&
+            {(siteProgress === 'in-progress') &&
                 (<Button mode="contained" onPress={() => {
                     navigation.navigate('CreateFinalReportView', { siteId: site?.id });
                 }}>
                     Create Final Report
                 </Button>)
             }
-            { showDailyLogs && 
-                (<FlatList 
+            {(siteProgress === 'complete') &&
+                (<FlatList
                     data={site?.DailyLogs}
-                    renderItem={({item}) => <Text>{item.notes} {item.created}</Text>}
+                    renderItem={({ item }) => <Text>{item.notes} {item.created}</Text>}
                 />)
             }
         </View>
