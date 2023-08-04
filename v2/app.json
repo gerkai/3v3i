@@ -9,6 +9,7 @@
         }
       ]
     ],
+    "jsEngine": "hermes",
     "slug": "PunchlinePro",
     "version": "1.0.0",
     "orientation": "portrait",
