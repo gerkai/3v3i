@@ -1,4 +1,5 @@
-import * as React from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { useFocusEffect } from '@react-navigation/native';
 import { Button } from 'react-native-paper';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
@@ -40,11 +41,11 @@ const HomeView = () => {
         <View style={styles.listItem}>
             <Text style={styles.listItemText}>{JSON.parse(item[1]).name}</Text>
             <IconButton
-                icon="camera"
+                icon="chevron-right"
                 color="#FF0000"
                 size={20}
                 onPress={() => {
-                    navigation.navigate('SiteDetailsView',{ siteId: JSON.parse(item[1]).id });
+                    navigation.navigate('SiteDetailsView', { siteId: JSON.parse(item[1]).id });
                 }}
             />
         </View>
@@ -55,6 +56,18 @@ const HomeView = () => {
             setSites(data);
         });
     }, [])
+
+    useFocusEffect(
+        React.useCallback(() => {
+            StorageService.getAllData().then(data => {
+                setSites(data);
+            });
+
+            return () => {
+                
+            };
+        }, [])
+    );
 
     return (
         <View style={styles.container}>

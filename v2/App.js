@@ -7,6 +7,8 @@ import { HomeView } from './src/views/HomeView';
 import { AddSiteView } from './src/views/AddSiteView';
 import { SiteDetailsView } from './src/views/SiteDetailsView';
 import { CreateSiteFeasibilityReportView } from './src/views/CreateSiteFeasibilityReportView';
+import { CreateDailyLogView } from './src/views/CreateDailyLogView';
+import { CreateFinalReportView } from './src/views/CreateFinalReportView';
 const Stack = createStackNavigator();
 
 export default function App() {
@@ -35,6 +37,12 @@ export default function App() {
           <Stack.Screen name="CreateSiteFeasibilityReportView" component={CreateSiteFeasibilityReportView} options={{
             title: 'Site Feasibility Report'
           }} />
+          <Stack.Screen name="CreateDailyLogView" component={CreateDailyLogView} options={{
+            title: 'Daily Log'
+          }} />
+          <Stack.Screen name="CreateFinalReportView" component={CreateFinalReportView} options={{
+            title: 'Final Report'
+          }}/>
         </Stack.Navigator>
       </PaperProvider>
     </NavigationContainer>
