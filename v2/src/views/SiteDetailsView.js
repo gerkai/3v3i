@@ -1,8 +1,10 @@
-import * as React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState, useEffect, useCallback } from 'react';
+import { useFocusEffect } from '@react-navigation/native';
+import { StyleSheet, Text, View, FlatList } from 'react-native';
 import StorageService from '../services/StorageService';
 import { Button } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/core';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const styles = StyleSheet.create({
     container: {
@@ -19,20 +21,37 @@ const SiteDetailsView = ({ route }) => {
 
     const [site, setSite] = React.useState(null);
     const [showSiteFeasibilityReport, setShowSiteFeasibilityReport] = React.useState(false);
+    const [showDailyLogs, setShowDailyLogs] = React.useState(false);
     const navigation = useNavigation();
 
     React.useEffect(() => {
-        const { siteId } = route.params;
-        StorageService.retrieveData(siteId).then(data => {
-            setSite(data)
 
-            if(data?.SiteFeasibilityReport !== undefined){
-                setShowSiteFeasibilityReport(false);
-            } else {
-                setShowSiteFeasibilityReport(true);
-            } 
-        });
-    }, [route.params])
+    }, [])
+
+    useFocusEffect(
+        React.useCallback(() => {
+            const { siteId } = route.params;
+            StorageService.retrieveData(siteId).then(data => {
+                setSite(data);
+
+                if(data?.SiteFeasibilityReport !== undefined){
+                    setShowSiteFeasibilityReport(false);
+                } else {
+                    setShowSiteFeasibilityReport(true);
+                } 
+    
+                if(data?.DailyLogs !== undefined){
+                    setShowDailyLogs(true);
+                } else {
+                    setShowDailyLogs(false);
+                }
+            });
+
+            return () => {
+                
+            };
+        }, [route.params])
+    );
 
     return (
         <View style={styles.container}>
@@ -61,6 +80,12 @@ const SiteDetailsView = ({ route }) => {
                 }}>
                     Create Final Report
                 </Button>)
+            }
+            { showDailyLogs && 
+                (<FlatList 
+                    data={site?.DailyLogs}
+                    renderItem={({item}) => <Text>{item.notes} {item.created}</Text>}
+                />)
             }
         </View>
     )

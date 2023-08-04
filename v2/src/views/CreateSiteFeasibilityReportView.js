@@ -42,8 +42,9 @@ const CreateSiteFeasibilityReportView = ({ route }) => {
                 const updatedSite = site;
                 updatedSite.SiteFeasibilityReport = {};
                 updatedSite.SiteFeasibilityReport.powerAvailabilityComments = powerAvailabilityComments;
-                StorageService.storeData(updatedSite.id, updatedSite);
-                navigation.navigate('HomeView');
+                StorageService.storeData(updatedSite.id, updatedSite).finally(() => {
+                    navigation.navigate('SiteDetailsView', { siteId: updatedSite.id });
+                });
             }}>
                 Create
             </Button>
