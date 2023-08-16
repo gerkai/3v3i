@@ -9,6 +9,7 @@ import { SiteDetailsView } from './src/views/SiteDetailsView';
 import { CreateSiteFeasibilityReportView } from './src/views/CreateSiteFeasibilityReportView';
 import { CreateDailyLogView } from './src/views/CreateDailyLogView';
 import { CreateFinalReportView } from './src/views/CreateFinalReportView';
+import { CameraView } from './src/views/CameraView';
 const Stack = createStackNavigator();
 
 export default function App() {
@@ -42,6 +43,9 @@ export default function App() {
           }} />
           <Stack.Screen name="CreateFinalReportView" component={CreateFinalReportView} options={{
             title: 'Final Report'
+          }}/>
+          <Stack.Screen name="CameraView" component={CameraView} options={{
+            title: 'Capture Photo'
           }}/>
         </Stack.Navigator>
       </PaperProvider>

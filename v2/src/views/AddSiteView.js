@@ -7,6 +7,19 @@ import { useNavigation } from '@react-navigation/native';
 import StorageService from '../services/StorageService';
 import uuid from 'react-native-uuid';
 
+const styles = StyleSheet.create({
+    addButton: {
+        textAlign: 'center',
+        marginTop: 10,
+        marginBottom: 10,
+        marginLeft: 10,
+        marginRight: 10,
+    },
+    addButtonText: {
+        fontSize: 18,
+    }
+});
+
 const AddSiteView = () => {
 
     const [name, setName] = React.useState("");
@@ -80,7 +93,7 @@ const AddSiteView = () => {
                         setOpen(false);
                     }} />)
             }
-            <Button icon="plus" mode="contained" onPress={createNewSite}>
+            <Button style={styles.addButton} labelStyle={styles.addButtonText} mode="contained" onPress={createNewSite}>
                 Add
             </Button>
         </View>

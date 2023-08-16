@@ -29,6 +29,18 @@ const styles = StyleSheet.create({
     flatlist: {
         flex: 1,
         flexDirection: 'column'
+    },
+    notStartedText: {
+        color: '#000000',
+        paddingLeft: 20
+    },
+    inProgressText: {
+        color: 'green',
+        paddingLeft: 20
+    },
+    completedText: {
+        color: 'lightgray',
+        paddingLeft: 20
     }
 });
 
