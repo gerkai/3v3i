@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Company.PunchlinePro.Identity", "Company.PunchlinePro.Identity\Company.PunchlinePro.Identity.csproj", "{E9C2889D-B84A-4C9A-8327-F3A2A4E92071}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E9C2889D-B84A-4C9A-8327-F3A2A4E92071}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9C2889D-B84A-4C9A-8327-F3A2A4E92071}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9C2889D-B84A-4C9A-8327-F3A2A4E92071}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9C2889D-B84A-4C9A-8327-F3A2A4E92071}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {51AE1E64-F534-4A51-A4DC-A1255726DAD2}
+	EndGlobalSection
+EndGlobal

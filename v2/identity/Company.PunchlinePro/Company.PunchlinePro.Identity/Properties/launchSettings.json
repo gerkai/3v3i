@@ -1,0 +1,18 @@
+﻿{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "profiles": {
+    "Company.PunchlinePro.Identity": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "applicationUrl": "https://localhost:7161;http://localhost:5106",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "DATABASE_CONNECTION": "Server=localhost;Initial Catalog=punchline-pro-db;Persist Security Info=False;User ID=sa;Password=zaq1@WSX;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=True;",
+        "SENDGRID_API_KEY": "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",
+        "JWT_SECRET": "This is a test key and should be replaced with a alphanumeric 128 character string with a few special characters."
+      }
+    }
+  }
+}
