@@ -74,6 +74,86 @@ namespace Company.PunchlinePro.Identity.Services
             XTextFormatter tf = new XTextFormatter(graphics);
             tf.DrawString(content, font, XBrushes.Black, rect, XStringFormats.TopLeft);
 
+            if (!string.IsNullOrEmpty(createPDFRequest.SiteFeasibilityReport?.transformerPhoto))
+            {
+                double x = 100;       // Adjust as needed
+                double y = 200;       // Adjust as needed
+                double width = 200;   // Adjust as needed
+                double height = 150;  // Adjust as needed
+
+                byte[] photoBytes = Convert.FromBase64String(createPDFRequest.SiteFeasibilityReport?.transformerPhoto);
+                if (photoBytes != null && photoBytes.Length > 0)
+                {
+                    using (var ms = new MemoryStream(photoBytes))
+                    {
+                        XImage image = XImage.FromStream(() => ms);
+
+                        graphics.DrawImage(image, x, y, width, height);
+
+                    }
+                }
+            }
+
+            if (!string.IsNullOrEmpty(createPDFRequest.SiteFeasibilityReport?.tieInPhoto))
+            {
+                double x = 100;       // Adjust as needed
+                double y = 400;       // Adjust as needed
+                double width = 200;   // Adjust as needed
+                double height = 150;  // Adjust as needed
+
+                byte[] photoBytes = Convert.FromBase64String(createPDFRequest.SiteFeasibilityReport?.tieInPhoto);
+                if (photoBytes != null && photoBytes.Length > 0)
+                {
+                    using (var ms = new MemoryStream(photoBytes))
+                    {
+                        XImage image = XImage.FromStream(() => ms);
+
+                        graphics.DrawImage(image, x, y, width, height);
+
+                    }
+                }
+            }
+
+            if (!string.IsNullOrEmpty(createPDFRequest.SiteFeasibilityReport?.stallLocationsPhoto))
+            {
+                double x = 100;       // Adjust as needed
+                double y = 600;       // Adjust as needed
+                double width = 200;   // Adjust as needed
+                double height = 150;  // Adjust as needed
+
+                byte[] photoBytes = Convert.FromBase64String(createPDFRequest.SiteFeasibilityReport?.stallLocationsPhoto);
+                if (photoBytes != null && photoBytes.Length > 0)
+                {
+                    using (var ms = new MemoryStream(photoBytes))
+                    {
+                        XImage image = XImage.FromStream(() => ms);
+
+                        graphics.DrawImage(image, x, y, width, height);
+
+                    }
+                }
+            }
+
+            if (!string.IsNullOrEmpty(createPDFRequest.SiteFeasibilityReport?.cellularReceptionPhoto))
+            {
+                double x = 100;       // Adjust as needed
+                double y = 900;       // Adjust as needed
+                double width = 200;   // Adjust as needed
+                double height = 150;  // Adjust as needed
+
+                byte[] photoBytes = Convert.FromBase64String(createPDFRequest.SiteFeasibilityReport?.cellularReceptionPhoto);
+                if (photoBytes != null && photoBytes.Length > 0)
+                {
+                    using (var ms = new MemoryStream(photoBytes))
+                    {
+                        XImage image = XImage.FromStream(() => ms);
+
+                        graphics.DrawImage(image, x, y, width, height);
+
+                    }
+                }
+            }
+
             return pdfDocument;
         }
     }

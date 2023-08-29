@@ -45,7 +45,9 @@ const StorageService = {
 
   async getAllData() {
     try {
-      const allKeys = (await AsyncStorage.getAllKeys()).filter((key) => key !== 'jwtToken' && key !== 'EXPO_CONSTANTS_INSTALLATION_ID');
+      const excludeKeyPattern = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}:[0-9]{3}$/;
+      const allKeys = (await AsyncStorage.getAllKeys())
+        .filter((key) => key !== 'jwtToken' && key !== 'EXPO_CONSTANTS_INSTALLATION_ID' && !excludeKeyPattern.test(key));
       const allData = await AsyncStorage.multiGet(allKeys);
       return allData;
     } catch (error) {

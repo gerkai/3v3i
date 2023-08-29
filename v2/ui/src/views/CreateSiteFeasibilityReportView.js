@@ -11,7 +11,7 @@ import { InputPhoto } from '../components/inputs/InputPhoto';
 import { InputDocumentPicker } from '../components/inputs/InputDocumentPicker';
 import { StationTypesTable } from '../components/inputs/StationTypesTable';
 import { InputStationTypes } from '../components/domain-inputs/InputStationTypes'
-
+import PhotoUrlService from '../services/PhotoUrlService';
 const styles = StyleSheet.create({
     addButton: {
         textAlign: 'center',
@@ -75,14 +75,12 @@ const CreateSiteFeasibilityReportView = ({ route }) => {
     const [totalEstimatedCost, setTotalEstimatedCost] = useState(null);
     const [additionalNotes, setAdditionalNotes] = useState(null);
 
-
-    const [questionPhotoData, setQuestionPhotoData] = React.useState(null);
     const [documents, setDocuments] = useState([]);
     const navigation = useNavigation();
 
     React.useEffect(() => {
-        const { siteId, photoData } = route.params;
-        setQuestionPhotoData(photoData);
+        const { siteId } = route.params;
+
         StorageService.retrieveData(siteId).then(data => {
             setSite(data)
         });
@@ -128,10 +126,14 @@ const CreateSiteFeasibilityReportView = ({ route }) => {
                     surveyCost: surveyCost,
                     constructionCost: constructionCost,
                     totalEstimatedCost: totalEstimatedCost,
-                    additionalNotes: additionalNotes
+                    additionalNotes: additionalNotes,
+                    transformerPhoto: null,
+                    tieInPhoto: null,
+                    stallLocationsPhoto: null,
+                    cellularReceptionPhoto: null,
                 }
             };
-
+            console.log(updatedSite);
             StorageService.storeData(updatedSite.id, updatedSite).finally(() => {
                 navigation.navigate('HomeView');
             });

@@ -23,16 +23,16 @@
         public string? housePowerVoltage { get; set; }
         public string? utilityStructureNumber { get; set; }
         public string? powerImpactComments { get; set; }
-        public object? transformerPhoto { get; set; }
-        public object? tieInPhoto { get; set; }
+        public string? transformerPhoto { get; set; }
+        public string? tieInPhoto { get; set; }
         public string? parkingLotType { get; set; }
         public string? stallCount { get; set; }
         public string? parkingLotLighting { get; set; }
         public string? accessibilityRequired { get; set; }
         public string? accessibilityConcerns { get; set; }
         public string? carrierType { get; set; }
-        public object? stallLocationsPhoto { get; set; }
-        public object? cellularReceptionPhoto { get; set; }
+        public string? stallLocationsPhoto { get; set; }
+        public string? cellularReceptionPhoto { get; set; }
         public string? currentFunding { get; set; }
         public string? fundingType { get; set; }
         public string? futureFunding { get; set; }

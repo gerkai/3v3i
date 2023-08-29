@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, ScrollView, Image, Dimensions } from 'react-nat
 import { TextInput, Button } from 'react-native-paper';
 import { Camera } from 'expo-camera';
 import { useNavigation } from '@react-navigation/core';
+import PhotoUrlService from '../services/PhotoUrlService';
 
 const styles = StyleSheet.create({
     container: {
@@ -42,26 +43,22 @@ const CameraView = ({ route }) => {
         })();
     }, [route.params]);
 
-    const takePhoto = async () => {
+    const takePhoto = useCallback(async () => {
         if (cameraRef) {
-            const photo = await cameraRef.takePictureAsync();
-            setCapturedPhoto(photo);
-            setShowPreview(true);
+          const photo = await cameraRef.takePictureAsync();
+          setCapturedPhoto(photo);
+          setShowPreview(true);
         }
-    };
-
-    const usePhoto = async () => {
-        navigation.navigate('CreateSiteFeasibilityReportView', { 
-            siteId: siteId, 
-            photoData: [
-                {
-                    photoUri: capturedPhoto.uri,
-                    questionId: questionId
-                }
-            ]
-        });
-
-    };
+      }, [cameraRef]);
+    
+      const usePhoto = useCallback(async () => {
+        if (capturedPhoto) {
+          await PhotoUrlService.storePhotoUrl(siteId, questionId, capturedPhoto.uri);
+          navigation.navigate('CreateSiteFeasibilityReportView', {
+            siteId: siteId,
+          });
+        }
+      }, [capturedPhoto, siteId, questionId, navigation]);
 
     return (
         <View style={styles.container}>

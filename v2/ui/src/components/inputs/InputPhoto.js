@@ -2,7 +2,8 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import { Button } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/core';
-
+import PhotoUrlService from '../../services/PhotoUrlService';
+import { useFocusEffect } from '@react-navigation/native';
 const styles = StyleSheet.create({
     addButton: {
         textAlign: 'center',
@@ -13,31 +14,32 @@ const styles = StyleSheet.create({
     }
 });
 
-const InputPhoto = ({ label = '', questionPhotoData, siteId, photoId }) => {
+const InputPhoto = ({ label = '', siteId, photoId }) => {
 
+    const [photoUri, setPhotoUri] = useState(null);
+    const [photoExist, setPhotoExist] = useState(false);
     const navigation = useNavigation();
 
-    const photoExist = (id) => {
-        if (questionPhotoData === null || questionPhotoData === undefined) {
-            return false;
-        }
-        const photo = questionPhotoData?.find(x => x.id === id);
-        if (photo === undefined) {
-            return true;
-        }
-        return false;
-    }
+    useFocusEffect(
+        React.useCallback(() => {
+            const fetchPhotoUrl = async () => {
+                const photoUri = await PhotoUrlService.getPhotoUrl(siteId, photoId);
+                if (photoUri !== null) {
+                    setPhotoUri(photoUri);
+                    setPhotoExist(true);
+                }
+            };
 
-    React.useEffect(() => {
-        
-    }, [siteId]);
+            fetchPhotoUrl();
+        }, [siteId, photoId])
+    );
 
     return (<View>
         <Text>
-            { label }
+            {label} {photoUri}
         </Text>
-        {photoExist(photoId) &&
-            <Image source={{ uri: questionPhotoData[0].photoUri }} style={{
+        {photoExist &&
+            <Image source={{ uri: photoUri }} style={{
                 width: 300,
                 height: 300,
                 alignSelf: 'center',
@@ -45,10 +47,10 @@ const InputPhoto = ({ label = '', questionPhotoData, siteId, photoId }) => {
                 marginBottom: 20,
             }} />
         }
-        {!photoExist(photoId) && <Button style={styles.addButton} labelStyle={styles.addButtonText} 
+        {!photoExist && <Button style={styles.addButton} labelStyle={styles.addButtonText}
             icon="camera" mode="contained" onPress={() => {
-            navigation.navigate('CameraView', { siteId: siteId, questionId: '001' });
-        }}>
+                navigation.navigate('CameraView', { siteId: siteId, questionId: photoId });
+            }}>
             Take Photo
         </Button>}
     </View>)

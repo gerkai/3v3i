@@ -33,8 +33,8 @@ const styles = StyleSheet.create({
 const LoginView = ({ activationToken = null }) => {
 
     const [userActivated, setUserActivated] = useState(false);
-    const [email, setEmail] = useState('robertlaraiii@gmail.com');
-    const [password, setPassword] = useState('Password123.');
+    const [email, setEmail] = useState('robert@moosara.com');
+    const [password, setPassword] = useState('');
     const navigation = useNavigation();
 
     React.useEffect(() => {
