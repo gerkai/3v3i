@@ -5,7 +5,6 @@ import PhotoUrlService from './PhotoUrlService';
 import Constants from 'expo-constants';
 let API_BASE_URL = 'https://1c9a-70-112-238-254.ngrok-free.app';
 
-// If the app is in production or a specific release channel, switch the URL
 if (!__DEV__ || (Constants.expoConfig.releaseChannel && Constants.expoConfig.releaseChannel === 'production')) {
     API_BASE_URL = 'https://1c9a-70-112-238-254.ngrok-free.app';
 }
@@ -56,7 +55,7 @@ const PdfService = {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`
                 },
-                body: JSON.stringify(site), // Ensure 'site' is a valid object
+                body: JSON.stringify(site),
             };
 
             return fetch(`${API_BASE_URL}/api/Pdf/Download`, requestOptions)
@@ -123,6 +122,33 @@ const PdfService = {
         if (photo004Uri !== null) {
             site.SiteFeasibilityReport.cellularReceptionPhoto = await this.fetchAndConvertToBase64(photo004Uri);
         }
+
+        if (site.SiteFeasibilityReport.proposedSitePlan !== null) {
+            const pdfDocumentUris = site.SiteFeasibilityReport.proposedSitePlan.map(s => s.uri);
+            site.extraDocuments = [];
+            for (let index = 0; index < pdfDocumentUris.length; index++) {
+                const pdfDocumentUri = pdfDocumentUris[index];
+                const documentBase64 = await this.fetchAndConvertToBase64(pdfDocumentUri);
+                site.extraDocuments.push(documentBase64);
+                console.log('A'+ site.extraDocuments);
+            }
+            console.log(pdfDocumentUris);
+            console.log('B');
+        }
+
+        
+        if (site.SiteFeasibilityReport.additionalPhotos !== null) {
+            const photoUris = site.SiteFeasibilityReport.additionalPhotos.map(s => s.uri);
+            console.log(photoUris);
+            site.extraPhotos = [];
+            for (let index = 0; index < photoUris.length; index++) {
+                const photoUri = photoUris[index];
+                const photoBase64 = await this.fetchAndConvertToBase64(photoUri);
+                site.extraPhotos.push(photoBase64);
+            }
+        }
+        
+        console.log('C')
         
         await TokenService.retrieveToken().then((token) => {
 
@@ -140,9 +166,8 @@ const PdfService = {
                 .then(async (response) => {
                     if (response.ok) {
 
-                        ('')
                     } else {
-                        throw new Error('Unable to download pdf');
+                        throw new Error(response.statusText);
                     }
                 })
                 .catch((error) => {

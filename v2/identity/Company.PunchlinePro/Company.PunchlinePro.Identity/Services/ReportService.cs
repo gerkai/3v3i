@@ -3,6 +3,7 @@ using Company.PunchlinePro.Identity.Services.Interfaces;
 using PdfSharpCore.Drawing;
 using PdfSharpCore.Drawing.Layout;
 using PdfSharpCore.Pdf;
+using PdfSharpCore.Pdf.IO;
 using SixLabors.Fonts;
 
 namespace Company.PunchlinePro.Identity.Services
@@ -153,6 +154,64 @@ namespace Company.PunchlinePro.Identity.Services
                     }
                 }
             }
+
+            foreach (var documentBase64 in createPDFRequest.extraPhotos) {
+                double x = 100;       // Adjust as needed
+                double y = 900;       // Adjust as needed
+                double width = 200;   // Adjust as needed
+                double height = 150;  // Adjust as needed
+
+                byte[] photoBytes = Convert.FromBase64String(documentBase64);
+                if (photoBytes != null && photoBytes.Length > 0)
+                {
+                    using (var ms = new MemoryStream(photoBytes))
+                    {
+                        XImage image = XImage.FromStream(() => ms);
+
+                        graphics.DrawImage(image, x, y, width, height);
+
+                    }
+                }
+            }
+
+            foreach (var documentBase64 in createPDFRequest.extraDocuments)
+            {
+                try
+                {
+                    // Convert the base64 string to bytes
+                    byte[] documentBytes = Convert.FromBase64String(documentBase64);
+
+                    // Create a PdfDocument object from the bytes
+                    using (MemoryStream documentStream = new MemoryStream(documentBytes))
+                    {
+                        PdfDocument appendedDocument = PdfReader.Open(documentStream, PdfDocumentOpenMode.Import);
+
+                        // Loop through the pages of the appended document and add them to the main document
+                        foreach (PdfPage page in appendedDocument.Pages)
+                        {
+                            PdfPage newPage = pdfDocument.AddPage();
+                            using (XGraphics gfx = XGraphics.FromPdfPage(newPage))
+                            {
+                                using (XImage image = XImage.FromStream(() => documentStream))
+                                {
+                                    gfx.DrawImage(image, 0, 0, newPage.Width, newPage.Height);
+                                }
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Handle exceptions if necessary
+                    Console.WriteLine($"Error adding document to PDF: {ex.Message}");
+                }
+            }
+
+            // Draw the content on the PDF
+            XRect xRect = new XRect(40, 100, pdfPage.Width - 80, pdfPage.Height - 200);
+            XTextFormatter xTextFormatter = new XTextFormatter(graphics);
+            xTextFormatter.DrawString(content, font, XBrushes.Black, xRect, XStringFormats.TopLeft);
+
 
             return pdfDocument;
         }

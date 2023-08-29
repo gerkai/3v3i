@@ -10,6 +10,8 @@
         public string? attendeeLastName { get; set; }
         public DateTime? date { get; set; }
         public SiteFeasibilityReport? SiteFeasibilityReport { get; set; }
+        public string[]? extraPhotos { get; set; }
+        public string[]? extraDocuments { get; set; }
     }
     public class SiteFeasibilityReport
     {

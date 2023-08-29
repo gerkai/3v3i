@@ -47,7 +47,7 @@ const StorageService = {
     try {
       const excludeKeyPattern = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}:[0-9]{3}$/;
       const allKeys = (await AsyncStorage.getAllKeys())
-        .filter((key) => key !== 'jwtToken' && key !== 'EXPO_CONSTANTS_INSTALLATION_ID' && !excludeKeyPattern.test(key));
+        .filter((key) => key !== 'jwtToken' && key !== 'EXPO_CONSTANTS_INSTALLATION_ID' && !excludeKeyPattern.test(key) && !key.includes('document'));
       const allData = await AsyncStorage.multiGet(allKeys);
       return allData;
     } catch (error) {

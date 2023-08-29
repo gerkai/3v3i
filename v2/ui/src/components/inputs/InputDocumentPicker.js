@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { Button, Text, View, ScrollView } from 'react-native';
 import * as DocumentPicker from 'expo-document-picker';
+import DocumentService from '../../services/DocumentService';
 
-const InputDocumentPicker = ({ label = '' , getter, setter}) => {
+const InputDocumentPicker = ({ label = '' , getter, setter, siteId}) => {
 
     const pickDocument = async () => {
         try {
             const result = await DocumentPicker.getDocumentAsync({});
             if (result.type === 'success') {
                 setter(prevDocs => [...prevDocs, result]);
+                await DocumentService.saveDocument(siteId, 'documents', result.uri);
             }
         } catch (error) {
             console.error("An error occurred while picking the document:", error);

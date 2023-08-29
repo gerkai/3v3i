@@ -38,7 +38,6 @@ const RegisterView = () => {
 
     const handleRegisterPress = useCallback(async () => {
 
-        ('Register Sent');
         await AuthenticationService.registerUser(name, email, password).then(async (response) => {
 
             navigation.replace('EmailVerificationSentView');

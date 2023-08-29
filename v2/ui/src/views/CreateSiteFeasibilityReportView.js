@@ -130,10 +130,9 @@ const CreateSiteFeasibilityReportView = ({ route }) => {
                     transformerPhoto: null,
                     tieInPhoto: null,
                     stallLocationsPhoto: null,
-                    cellularReceptionPhoto: null,
+                    cellularReceptionPhoto: null
                 }
             };
-            console.log(updatedSite);
             StorageService.storeData(updatedSite.id, updatedSite).finally(() => {
                 navigation.navigate('HomeView');
             });
@@ -257,8 +256,8 @@ const CreateSiteFeasibilityReportView = ({ route }) => {
                     setter={setFundingRequirements} multiline={true} />
 
                 <SectionHeader title="Additional Information" />
-                <InputDocumentPicker label="Proposed Site Plan" getter={proposedSitePlan} setter={setProposedSitePlan} />
-                <InputDocumentPicker label="Additional Photo Upload" getter={additionalPhotos} setter={setAdditionalPhotos} />
+                <InputDocumentPicker label="Proposed Site Plan" getter={proposedSitePlan} setter={setProposedSitePlan} siteId={route.params.siteId} />
+                <InputDocumentPicker label="Additional Photo Upload" getter={additionalPhotos} setter={setAdditionalPhotos} siteId={route.params.siteId} />
 
                 <SectionHeader title="Cost Analysis" />
                 <InputText label="Est. Station Cost" getter={stationCost}
