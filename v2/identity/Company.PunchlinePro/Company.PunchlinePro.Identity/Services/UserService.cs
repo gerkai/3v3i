@@ -131,7 +131,7 @@ namespace Company.PunchlinePro.Identity.Services
                 Email = email,
                 Name = name,
                 Password = Cryptography.HashPassword(password),
-                ActivationToken = new Faker().Random.AlphaNumeric(32),
+                ActivationToken = new Faker().Random.AlphaNumeric(7).ToUpper(),
             };
 
             await _applicationDbContext.Users.AddAsync(userEntity);
@@ -213,7 +213,7 @@ namespace Company.PunchlinePro.Identity.Services
         {
             var randomPassword = new Faker().Random.AlphaNumeric(125);
             var hashedRandomPassword = Cryptography.HashPassword(randomPassword);
-            var randomResetPasswordToken = new Faker().Random.AlphaNumeric(125);
+            var randomResetPasswordToken = new Faker().Random.AlphaNumeric(7).ToUpper();
 
             var userEntity = await _applicationDbContext.Users.FirstOrDefaultAsync(s => s.Email == email);
 

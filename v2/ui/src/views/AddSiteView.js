@@ -82,14 +82,14 @@ const AddSiteView = () => {
             }}>
                 <TextInput
                     label="Date"
-                    value={date}
+                    value={date.toLocaleDateString()}
                     editable={false}
                 />
             </TouchableOpacity>
             {open &&
                 (<DateTimePicker value={new Date()} display="calendar"
                     onChange={(event, date) => {
-                        setDate(date.toDateString());
+                        setDate(date);
                         setOpen(false);
                     }} />)
             }

@@ -64,7 +64,11 @@ namespace Company.PunchlinePro.Identity.Controllers
         {
             var jwtToken = await _userService.Authenticate(loginUserRequest.Email, loginUserRequest.Password);
 
-            return Ok(jwtToken);
+            var tokenObject = new { 
+                token = jwtToken   
+            };
+
+            return Ok(tokenObject);
         }
 
         [HttpPost("ResetPasswordRequest")]

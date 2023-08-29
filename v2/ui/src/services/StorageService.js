@@ -45,7 +45,7 @@ const StorageService = {
 
   async getAllData() {
     try {
-      const allKeys = await AsyncStorage.getAllKeys();
+      const allKeys = (await AsyncStorage.getAllKeys()).filter((key) => key !== 'jwtToken' && key !== 'EXPO_CONSTANTS_INSTALLATION_ID');
       const allData = await AsyncStorage.multiGet(allKeys);
       return allData;
     } catch (error) {

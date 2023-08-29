@@ -2,6 +2,8 @@ import React, { useState, useCallback } from 'react';
 import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
 import { Button, TextInput } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/core';
+import AuthenticationService from '../services/AuthenticationService';
+import TokenService from '../services/TokenService';
 
 const styles = StyleSheet.create({
     registerButton: {
@@ -15,6 +17,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+        paddingTop: 25,
     },
     inputSection: {
         flex: .5,
@@ -27,23 +30,45 @@ const styles = StyleSheet.create({
     }
 });
 
-const LoginView = () => {
+const LoginView = ({ activationToken = null }) => {
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [userActivated, setUserActivated] = useState(false);
+    const [email, setEmail] = useState('robertlaraiii@gmail.com');
+    const [password, setPassword] = useState('Password123.');
     const navigation = useNavigation();
 
-    const handleLoginPress = useCallback(() => {
-        navigation.replace('HomeView');
-    }, [navigation]);
+    React.useEffect(() => {
+        if (activationToken) {
+            AuthenticationService.activateUser(activationToken).then(() => {
+                setUserActivated(true);
+            }).catch((error) => {
+                (error);
+            });
+        }
+    }, [activationToken]);
 
-    const openURL = () => {
-        navigation.replace('RegisterView');
-    };
+    const handleLoginPress = useCallback(async () => {
 
-    const openTestURL = () => {
-        navigation.replace('ResetPasswordView');
-    };
+        await AuthenticationService.loginUser(email, password).then(async (response) => {
+
+            if(response.token !== ''){
+                await TokenService.storeToken(response.token).finally(() => {
+                    navigation.replace('HomeView');
+                });
+            }
+        }).catch((error) => {
+            console.error(error);
+        });
+
+    }, [email, password, navigation]);
+
+    const registerPress = useCallback(async () => {
+        navigation.navigate('RegisterView');
+    }, []);
+
+    const resetPasswordPress = useCallback(async () => {
+        navigation.navigate('ResetPasswordRequestView');
+    }, []);
 
     return (<View style={styles.container}>
         <View style={styles.inputSection}>
@@ -70,19 +95,20 @@ const LoginView = () => {
                 Login
             </Button>
 
+            {userActivated && <Text style={styles.linkText}>
+                Your account has been activated. You may now login.
+            </Text>}
 
         </View>
         <View style={styles.loginSection}>
-            <TouchableOpacity onPress={openURL}>
+            <TouchableOpacity onPress={registerPress}>
                 <Text style={styles.linkText}>
                     Register
                 </Text>
             </TouchableOpacity>
-        </View>
-        <View style={styles.loginSection}>
-            <TouchableOpacity onPress={openTestURL}>
+            <TouchableOpacity onPress={resetPasswordPress}>
                 <Text style={styles.linkText}>
-                    Reset Password (Development Only)
+                    Reset Password
                 </Text>
             </TouchableOpacity>
         </View>

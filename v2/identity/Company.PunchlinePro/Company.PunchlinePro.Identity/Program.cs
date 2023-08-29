@@ -32,7 +32,17 @@ builder.Services.AddAuthentication(x =>
             ValidateAudience = false
         };
     });
-
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(
+        builder =>
+        {
+            builder.WithOrigins("http://localhost", "https://localhost", "http://localhost:19006")
+                .AllowAnyHeader()
+                .AllowAnyMethod()
+                .AllowAnyOrigin();
+        });
+});
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -40,6 +50,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<ApplicationDbContext>();
 builder.Services.AddTransient<IUserService, UserService>();
 builder.Services.AddTransient<ITwilioService, TwilioService>();
+builder.Services.AddTransient<IReportService, ReportService>();
+
 var mappingConfig = new MapperConfiguration(mc => { mc.AddProfile(new CustomAutoMapperProfile()); });
 
 IMapper mapper = mappingConfig.CreateMapper();
@@ -62,11 +74,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
-
+//app.UseHttpsRedirection();
+app.UseCors();
 app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();

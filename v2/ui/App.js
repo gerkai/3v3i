@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Linking } from 'react-native';
 import { PaperProvider } from 'react-native-paper';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
@@ -15,19 +16,39 @@ import { RegisterView } from './src/views/RegisterView';
 import { EmailVerificationSentView } from './src/views/EmailVerificationSentView';
 import { ShowSiteFeasibilityReportView } from './src/views/ShowSiteFeasibilityReportView';
 import { ResetPasswordView } from './src/views/ResetPasswordView';
+import { ResetPasswordRequestView } from './src/views/ResetPasswordRequestView';
 const Stack = createStackNavigator();
 
 export default function App() {
 
+  const handleDeepLink = async ({ url }) => {
+    if (url) {
+      // Parse the URL to extract query parameters
+      const queryParams = Linking.parse(url);
+
+      // Extract the activation token from query parameters
+      const activationToken = queryParams.queryParams['activationtoken'];
+
+      // Navigate to the account activation screen, passing the activation token
+      navigation.replace('AccountActivation', { activationToken });
+    }
+  };
+
+  React.useEffect(() => {
+    Linking.addEventListener('url', handleDeepLink);
+    // Clean up the event listener when the component unmounts
+    return () => Linking.removeEventListener('url', handleDeepLink);
+  }, []);
 
   return (
     <NavigationContainer>
       <PaperProvider>
         <Stack.Navigator>
-          <Stack.Screen name="RegisterView" component={RegisterView} options={{ title: ''}}/>
-          <Stack.Screen name="LoginView" component={LoginView} options={{ title: ''}}/>
-          <Stack.Screen name="ResetPasswordView" component={ResetPasswordView} options={{ title: ''}}/>
-          <Stack.Screen name="EmailVerificationSentView" component={EmailVerificationSentView} options={{title:''}} />
+          <Stack.Screen name="LoginView" component={LoginView} options={{ headerShown: false}}/>
+          <Stack.Screen name="RegisterView" component={RegisterView} options={{ headerShown: false}}/>
+          <Stack.Screen name="ResetPasswordView" component={ResetPasswordView} options={{ title: 'Reset Password'}}/>
+          <Stack.Screen name="EmailVerificationSentView" component={EmailVerificationSentView} options={{ title: 'Email Verification Sent'}} />
+          <Stack.Screen name="ResetPasswordRequestView" component={ResetPasswordRequestView} options={{ title: 'Reset Password Request'}} />
           <Stack.Screen name="ShowSiteFeasibilityReportView" component={ShowSiteFeasibilityReportView} options={{
             title: 'Site Feasibility Report'
           }} />

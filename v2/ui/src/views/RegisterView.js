@@ -2,6 +2,7 @@ import React, { useState, useCallback } from 'react';
 import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
 import { Button, TextInput } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/core';
+import AuthenticationService from '../services/AuthenticationService';
 
 const styles = StyleSheet.create({
     registerButton: {
@@ -29,13 +30,24 @@ const styles = StyleSheet.create({
 
 const RegisterView = () => {
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
+    const [name, setName] = useState('John Doe');
+    const [email, setEmail] = useState('robertlaraiii@gmail.com');
+    const [password, setPassword] = useState('Password123.');
+    const [confirmPassword, setConfirmPassword] = useState('Password123.');
     const navigation = useNavigation();
 
-    const handleRegisterPress = useCallback(() => {
-        navigation.replace('EmailVerificationSentView');
+    const handleRegisterPress = useCallback(async () => {
+
+        ('Register Sent');
+        await AuthenticationService.registerUser(name, email, password).then(async (response) => {
+
+            navigation.replace('EmailVerificationSentView');
+
+        }).catch((error) => {
+            (error);
+        });
+        
+
     }, [navigation]);
 
     const openURL = () => {
@@ -45,6 +57,14 @@ const RegisterView = () => {
     return (
         <View style={styles.container}>
             <View style={styles.inputSection}>
+                <TextInput
+                    label="Name"
+                    multiline={false}
+                    value={name}
+                    onChangeText={text => {
+                        setName(text);
+                    }}
+                />
                 <TextInput
                     label="Email"
                     multiline={false}

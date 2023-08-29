@@ -12,6 +12,7 @@
     "jsEngine": "hermes",
     "slug": "PunchlinePro",
     "version": "1.0.0",
+    "proxy": "http://localhost:5106",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",

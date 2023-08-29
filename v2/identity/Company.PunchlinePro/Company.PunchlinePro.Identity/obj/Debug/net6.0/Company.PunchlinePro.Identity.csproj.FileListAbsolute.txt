@@ -75,3 +75,13 @@ C:\Users\RobertLaraIII\Documents\GitHub\3V3i\v2\identity\Company.PunchlinePro\Co
 C:\Users\RobertLaraIII\Documents\GitHub\3V3i\v2\identity\Company.PunchlinePro\Company.PunchlinePro.Identity\obj\Debug\net6.0\Company.PunchlinePro.Identity.pdb
 C:\Users\RobertLaraIII\Documents\GitHub\3V3i\v2\identity\Company.PunchlinePro\Company.PunchlinePro.Identity\obj\Debug\net6.0\Company.PunchlinePro.Identity.genruntimeconfig.cache
 C:\Users\RobertLaraIII\Documents\GitHub\3V3i\v2\identity\Company.PunchlinePro\Company.PunchlinePro.Identity\obj\Debug\net6.0\ref\Company.PunchlinePro.Identity.dll
+C:\Users\RobertLaraIII\Documents\GitHub\3V3i\v2\identity\Company.PunchlinePro\Company.PunchlinePro.Identity\bin\Debug\net6.0\EmailTemplates\ActivateUserEmailTemplate.html
+C:\Users\RobertLaraIII\Documents\GitHub\3V3i\v2\identity\Company.PunchlinePro\Company.PunchlinePro.Identity\bin\Debug\net6.0\EmailTemplates\ResetPasswordEmailTemplate.html
+C:\Users\RobertLaraIII\Documents\GitHub\3V3i\v2\identity\Company.PunchlinePro\Company.PunchlinePro.Identity\bin\Debug\net6.0\Select.Html.dep
+C:\Users\RobertLaraIII\Documents\GitHub\3V3i\v2\identity\Company.PunchlinePro\Company.PunchlinePro.Identity\bin\Debug\net6.0\PdfSharpCore.dll
+C:\Users\RobertLaraIII\Documents\GitHub\3V3i\v2\identity\Company.PunchlinePro\Company.PunchlinePro.Identity\bin\Debug\net6.0\ICSharpCode.SharpZipLib.dll
+C:\Users\RobertLaraIII\Documents\GitHub\3V3i\v2\identity\Company.PunchlinePro\Company.PunchlinePro.Identity\bin\Debug\net6.0\SixLabors.Fonts.dll
+C:\Users\RobertLaraIII\Documents\GitHub\3V3i\v2\identity\Company.PunchlinePro\Company.PunchlinePro.Identity\bin\Debug\net6.0\SixLabors.ImageSharp.dll
+C:\Users\RobertLaraIII\Documents\GitHub\3V3i\v2\identity\Company.PunchlinePro\Company.PunchlinePro.Identity\bin\Debug\net6.0\de\PdfSharpCore.resources.dll
+C:\Users\RobertLaraIII\Documents\GitHub\3V3i\v2\identity\Company.PunchlinePro\Company.PunchlinePro.Identity\bin\Debug\net6.0\HtmlRenderer.dll
+C:\Users\RobertLaraIII\Documents\GitHub\3V3i\v2\identity\Company.PunchlinePro\Company.PunchlinePro.Identity\bin\Debug\net6.0\EmailTemplates\SiteReportEmailTemplate.html

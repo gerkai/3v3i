@@ -1,4 +1,6 @@
-﻿namespace Company.PunchlinePro.Identity.Services.Interfaces
+﻿using PdfSharpCore.Pdf;
+
+namespace Company.PunchlinePro.Identity.Services.Interfaces
 {
     public interface ITwilioService
     {
@@ -14,5 +16,10 @@
             string passwordResetToken,
             HttpContext httpContext, 
             IWebHostEnvironment hostEnvironment);
+
+        Task<bool> SendSiteReport(
+            string email,
+            IWebHostEnvironment hostEnvironment, 
+            PdfDocument pdfDocument);
     }
 }
