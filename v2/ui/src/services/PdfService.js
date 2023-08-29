@@ -45,6 +45,27 @@ const PdfService = {
         if (photo004Uri !== null) {
             site.SiteFeasibilityReport.cellularReceptionPhoto = await this.fetchAndConvertToBase64(photo004Uri);
         }
+
+        if (site.SiteFeasibilityReport.proposedSitePlan !== null) {
+            const pdfDocumentUris = site.SiteFeasibilityReport.proposedSitePlan.map(s => s.uri);
+            site.extraDocuments = [];
+            for (let index = 0; index < pdfDocumentUris.length; index++) {
+                const pdfDocumentUri = pdfDocumentUris[index];
+                const documentBase64 = await this.fetchAndConvertToBase64(pdfDocumentUri);
+                site.extraDocuments.push(documentBase64);
+            }
+        }
+
+        
+        if (site.SiteFeasibilityReport.additionalPhotos !== null) {
+            const photoUris = site.SiteFeasibilityReport.additionalPhotos.map(s => s.uri);
+            site.extraPhotos = [];
+            for (let index = 0; index < photoUris.length; index++) {
+                const photoUri = photoUris[index];
+                const photoBase64 = await this.fetchAndConvertToBase64(photoUri);
+                site.extraPhotos.push(photoBase64);
+            }
+        }
         
 
         await TokenService.retrieveToken().then((token) => {
@@ -130,16 +151,12 @@ const PdfService = {
                 const pdfDocumentUri = pdfDocumentUris[index];
                 const documentBase64 = await this.fetchAndConvertToBase64(pdfDocumentUri);
                 site.extraDocuments.push(documentBase64);
-                console.log('A'+ site.extraDocuments);
             }
-            console.log(pdfDocumentUris);
-            console.log('B');
         }
 
         
         if (site.SiteFeasibilityReport.additionalPhotos !== null) {
             const photoUris = site.SiteFeasibilityReport.additionalPhotos.map(s => s.uri);
-            console.log(photoUris);
             site.extraPhotos = [];
             for (let index = 0; index < photoUris.length; index++) {
                 const photoUri = photoUris[index];
@@ -148,7 +165,6 @@ const PdfService = {
             }
         }
         
-        console.log('C')
         
         await TokenService.retrieveToken().then((token) => {
 
