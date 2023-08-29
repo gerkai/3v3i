@@ -5,13 +5,18 @@ name: Build and deploy ASP.Net Core app to Azure Web App - Prod-PunchlistPro
 
 on:
   push:
+    paths:
+       -v2/identity/Company.PunchlinePro/**
     branches:
-      - main
+      - master
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: ./v2/identity/Company.PunchlinePro
 
     steps:
       - uses: actions/checkout@v2
