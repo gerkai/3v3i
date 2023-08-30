@@ -3,7 +3,7 @@ let API_BASE_URL = 'https://1c9a-70-112-238-254.ngrok-free.app';
 
 // If the app is in production or a specific release channel, switch the URL
 if (!__DEV__ || (Constants.expoConfig.releaseChannel && Constants.expoConfig.releaseChannel === 'production')) {
-  API_BASE_URL = 'https://1c9a-70-112-238-254.ngrok-free.app';
+  API_BASE_URL = 'https://moosara-api-prod.azurewebsites.net';
 }
 
 const AuthenticationService = {
