@@ -1,9 +1,9 @@
 import Constants from 'expo-constants';
-let API_BASE_URL = 'https://1c9a-70-112-238-254.ngrok-free.app';
+let API_BASE_URL = 'https://prod-punchlistpro.azurewebsites.net';
 
 // If the app is in production or a specific release channel, switch the URL
 if (!__DEV__ || (Constants.expoConfig.releaseChannel && Constants.expoConfig.releaseChannel === 'production')) {
-  API_BASE_URL = 'https://moosara-api-prod.azurewebsites.net';
+  API_BASE_URL = 'https://prod-punchlistpro.azurewebsites.net';
 }
 
 const AuthenticationService = {
@@ -18,7 +18,7 @@ const AuthenticationService = {
       if (response.ok) {
         return response;
       } 
-      throw new Error('Invalid email or password.');
+      throw new Error('Error Registering, Status Code: ' + response.status);
     }).then((data) => {
       return data;
     }).catch((error) => {

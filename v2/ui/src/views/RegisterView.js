@@ -30,10 +30,10 @@ const styles = StyleSheet.create({
 
 const RegisterView = () => {
 
-    const [name, setName] = useState('John Doe');
-    const [email, setEmail] = useState('robertlaraiii@gmail.com');
-    const [password, setPassword] = useState('Password123.');
-    const [confirmPassword, setConfirmPassword] = useState('Password123.');
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
     const navigation = useNavigation();
 
     const handleRegisterPress = useCallback(async () => {

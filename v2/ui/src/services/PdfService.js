@@ -3,7 +3,7 @@ import * as Sharing from 'expo-sharing';
 import TokenService from './TokenService';
 import PhotoUrlService from './PhotoUrlService';
 import Constants from 'expo-constants';
-let API_BASE_URL = 'https://1c9a-70-112-238-254.ngrok-free.app';
+let API_BASE_URL = 'https://prod-punchlistpro.azurewebsites.net';
 
 if (!__DEV__ || (Constants.expoConfig.releaseChannel && Constants.expoConfig.releaseChannel === 'production')) {
     API_BASE_URL = 'https://moosara-api-prod.azurewebsites.net';
