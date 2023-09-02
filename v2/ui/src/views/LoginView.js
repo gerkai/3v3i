@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
 const LoginView = ({ activationToken = null }) => {
 
     const [userActivated, setUserActivated] = useState(false);
-    const [email, setEmail] = useState('robert@moosara.com');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigation = useNavigation();
 
