@@ -8,8 +8,9 @@ using Microsoft.IdentityModel.Tokens;
 using Company.PunchlinePro.Identity.Infrastructure;
 using Company.PunchlinePro.Identity.Helpers;
 
-var builder = WebApplication.CreateBuilder(args);
 
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddApplicationInsightsTelemetry("fxb28gtwitaoe48rnc1fs4ve5x6d2ljvncgvaeri");
 var jwtSecret = Environment.GetEnvironmentVariable("JWT_SECRET");
 if (jwtSecret is null)
     throw new Exception("Cannot load configuration");
@@ -79,5 +80,8 @@ app.UseCors();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
+
+app.UseApplicationInsightsExceptionTelemetry();
+app.UseApplicationInsightsRequestTelemetry();
 
 app.Run();
