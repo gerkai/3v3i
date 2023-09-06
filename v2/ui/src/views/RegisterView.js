@@ -47,7 +47,7 @@ const RegisterView = () => {
         });
         
 
-    }, [navigation]);
+    }, [navigation, name, email, password]);
 
     const openURL = () => {
         navigation.replace('LoginView');
